@@ -41,9 +41,12 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	Globals.healthPoints -= 1
 	get_node("/root/Game/CanvasLayer/Label").text = "HP: " + str(Globals.healthPoints)
 	if Globals.healthPoints <= 0:
-		SceneSwitcher.change_scene_to("game_over") 
+		Globals.Game_Over()
 
 	explode_planet()
+	
+#func _process(delta: float) -> void:
+	#print(Globals.healthPoints)
 
 func explode_planet():
 	anim_player.play("explode")

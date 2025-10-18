@@ -1,6 +1,5 @@
 extends Node
 
-
 func _on_body_entered(body: Node2D) -> void:
 	if (Globals.healthPoints < 3):
 		Globals.healthPoints += 1
