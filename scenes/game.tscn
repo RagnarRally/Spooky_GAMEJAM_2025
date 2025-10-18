@@ -30,7 +30,7 @@ camera = NodePath("PlayerSpaceship/Camera2D")
 
 [node name="PlayerSpaceship" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(548, 329)
-engine_power = 80
+engine_power = 300
 spin_power = 1000
 boost_sound = SubResource("Resource_vtaks")
 

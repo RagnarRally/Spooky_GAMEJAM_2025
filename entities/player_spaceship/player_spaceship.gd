@@ -56,15 +56,15 @@ func _process(delta: float) -> void:
 		#remove_stuff()
 
 func _input(event):
-	if event.is_action_pressed("thrust") and bursts:
-		apply_impulse(transform.x * engine_power, Vector2.ZERO)
-		bursts -= 1
-		#print("Hi there")
-		# $"../AudioStreamPlayer".play()
-		AudioManager.play_sound_effect(boost_sound)
-		if (!bursts):
-			MiniGame.reset_me()
-			MiniGame.randomize_areas()
+	#if event.is_action_pressed("thrust") and bursts:
+		#apply_impulse(transform.x * engine_power, Vector2.ZERO)
+		#bursts -= 1
+		##print("Hi there")
+		## $"../AudioStreamPlayer".play()
+		#AudioManager.play_sound_effect(boost_sound)
+		#if (!bursts):
+			#MiniGame.reset_me()
+			#MiniGame.randomize_areas()
 			
 	if event.is_action_pressed("left_mouse"):
 		dragging = true
