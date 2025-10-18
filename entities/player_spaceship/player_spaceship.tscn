@@ -3,16 +3,15 @@
 [ext_resource type="Script" uid="uid://bsbmc15pt5t75" path="res://entities/player_spaceship/player_spaceship.gd" id="1_uu7e4"]
 [ext_resource type="Texture2D" uid="uid://bgbddn6i56oto" path="res://assets/art/Start Game/Planetship.png" id="2_dj30g"]
 [ext_resource type="Script" uid="uid://cnqhqro3npd0c" path="res://systems/audio/configurable_audio_stream_resource.gd" id="2_my5lt"]
-[ext_resource type="AudioStream" uid="uid://1cgx8bjon55m" path="res://assets/sound/effects/boostburst.mp3" id="3_7s63r"]
+[ext_resource type="AudioStream" uid="uid://bda8jhx6ugmhs" path="res://assets/sound/effects/thrust_new.wav" id="3_4ivy3"]
 [ext_resource type="PackedScene" uid="uid://4i8pjywpcq7b" path="res://minigame.tscn" id="4_dj30g"]
 [ext_resource type="Texture2D" uid="uid://2i3ttl53w1kx" path="res://assets/art/Start Game/Star_Big.png" id="4_orn4k"]
 [ext_resource type="Script" uid="uid://eeq6vhap3ndi" path="res://systems/health/health_component.gd" id="7_4ivy3"]
 [ext_resource type="Script" uid="uid://de34r324se8ca" path="res://systems/health/hitbox_component.gd" id="8_iotih"]
 
-[sub_resource type="Resource" id="Resource_4ivy3"]
+[sub_resource type="Resource" id="Resource_iotih"]
 script = ExtResource("2_my5lt")
-stream = ExtResource("3_7s63r")
-audio_bus = &"Sound Effect"
+stream = ExtResource("3_4ivy3")
 metadata/_custom_type_script = "uid://cnqhqro3npd0c"
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_4ivy3"]
@@ -24,7 +23,7 @@ radius = 22.0
 [node name="PlayerSpaceship" type="RigidBody2D"]
 script = ExtResource("1_uu7e4")
 engine_power = 1000
-boost_sound = SubResource("Resource_4ivy3")
+boost_sound = SubResource("Resource_iotih")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1.0588765e-06, 0.41488987, 0.5531835, 1)
