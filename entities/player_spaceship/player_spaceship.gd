@@ -47,6 +47,7 @@ func _input(event):
 		print("Hi there")
 		if (!bursts):
 			MiniGame.reset_me()
+			MiniGame.randomize_areas()
 		
 #func remove_stuff():
 	#for obj in spawned_objects:
