@@ -42,7 +42,7 @@ func _physics_process(_delta : float):
 
 func _input(event):
 	if event.is_action_pressed("thrust") and bursts:
-		apply_impulse(-transform.y * engine_power, Vector2.ZERO)
+		apply_impulse(transform.x * engine_power, Vector2.ZERO)
 		bursts -= 1
 		print("Hi there")
 		if (!bursts):
