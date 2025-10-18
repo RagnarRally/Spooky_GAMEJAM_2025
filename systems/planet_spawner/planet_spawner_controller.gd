@@ -61,6 +61,8 @@ func algo():
 
 func _valid_planet_placement(new_planet_pos):
 	for p in _spawned_planets:
+		if !is_instance_valid(p):
+			continue
 		var d = p.global_position.distance_squared_to(new_planet_pos)
 		if d < pow(min_distance_between_planets, 2):
 			return false
@@ -68,6 +70,8 @@ func _valid_planet_placement(new_planet_pos):
 	
 func _valid_resource_placement(new_resource_pos):
 	for p in _spawned_planets: #Keep distance from planets
+		if !is_instance_valid(p):
+			continue
 		var d = p.global_position.distance_squared_to(new_resource_pos)
 		if d < pow(min_distance_between_planetsandresources, 2):
 			return false

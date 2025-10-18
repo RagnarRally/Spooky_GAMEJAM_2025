@@ -17,3 +17,11 @@ func setup(new_properties: PlanetProperties):
 	_graphics_root.scale = Vector2.ONE * new_properties.size / 10
 	collision_shape.shape.radius = new_properties.size
 	
+
+
+func _on_area_2d_2_body_entered(body: Node2D) -> void:
+	Globals.healthPoints -= 1
+	get_node("/root/Game/CanvasLayer/Label").text = "HP: " + str(Globals.healthPoints)
+	if Globals.healthPoints < 0:
+		print("Girl Got You")
+	queue_free()

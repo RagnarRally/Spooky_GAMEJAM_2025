@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ckrpxipsrp27m"]
 
 [ext_resource type="Script" uid="uid://d3kn02m7watx" path="res://entities/planet/planet.gd" id="1_fhyl1"]
-[ext_resource type="Script" path="res://entities/planet/planet_properties_res.gd" id="2_7hoq1"]
+[ext_resource type="Script" uid="uid://cq300ud1f7bro" path="res://entities/planet/planet_properties_res.gd" id="2_7hoq1"]
 [ext_resource type="Texture2D" uid="uid://cwklse3j3g0o3" path="res://assets/art/Start Game/Shine_Effect.png" id="3_g43px"]
 [ext_resource type="Texture2D" uid="uid://5t1tybrotauu" path="res://assets/art/Start Game/Planet_1.png" id="3_itihs"]
 
@@ -12,6 +12,7 @@ metadata/_custom_type_script = "uid://cq300ud1f7bro"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0pdj7"]
 resource_local_to_scene = true
+radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_itihs"]
 radius = 256.0
@@ -20,7 +21,7 @@ radius = 256.0
 script = ExtResource("1_fhyl1")
 properties = SubResource("Resource_laq2e")
 _graphics_root = NodePath("Graphics")
-collision_shape = NodePath("StaticBody2D/CollisionShape2D")
+collision_shape = NodePath("Area2D2/CollisionShape2D")
 
 [node name="ShineEffect" type="Sprite2D" parent="."]
 texture = ExtResource("3_g43px")
@@ -31,9 +32,9 @@ texture = ExtResource("3_g43px")
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("3_itihs")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Area2D2" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 shape = SubResource("CircleShape2D_0pdj7")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -46,3 +47,5 @@ gravity = 120.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_itihs")
 debug_color = Color(0.043137256, 0.62352943, 0.5294118, 0.16862746)
+
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

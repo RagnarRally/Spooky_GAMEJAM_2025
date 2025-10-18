@@ -8,7 +8,7 @@ size = Vector2(59.795, 43.06)
 [node name="Label" type="Label"]
 offset_right = 40.0
 offset_bottom = 67.0
-text = "BP"
+text = "HP"
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(31, 35)
