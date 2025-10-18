@@ -19,7 +19,8 @@ engine_power = 400
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 z_index = -1
-repeat_size = Vector2(510, 510)
+scale = Vector2(1.27, 1.27)
+repeat_size = Vector2(2000, 1000)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
 texture = SubResource("NoiseTexture2D_h2yge")
