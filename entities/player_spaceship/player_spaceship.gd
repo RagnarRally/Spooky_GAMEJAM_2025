@@ -45,6 +45,7 @@ func _input(event):
 		apply_impulse(transform.x * engine_power, Vector2.ZERO)
 		bursts -= 1
 		#print("Hi there")
+		$"../AudioStreamPlayer".play()
 		if (!bursts):
 			MiniGame.reset_me()
 			MiniGame.randomize_areas()

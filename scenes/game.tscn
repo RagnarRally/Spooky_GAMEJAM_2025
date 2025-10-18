@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1gpmg3iulicg"]
+[gd_scene load_steps=10 format=3 uid="uid://c1gpmg3iulicg"]
 
 [ext_resource type="Script" uid="uid://dgwa6pxgwf8w5" path="res://scenes/game.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://dkvu8ncimgpxm" path="res://entities/player_spaceship/player_spaceship.tscn" id="1_uwrxv"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://6wo182se5ki" path="res://systems/planet_spawner/planet_spawner_controller.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://ckrpxipsrp27m" path="res://entities/planet/planet.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://4i8pjywpcq7b" path="res://minigame.tscn" id="6_p57ef"]
+[ext_resource type="AudioStream" uid="uid://b3t2ss6qvd55i" path="res://sounds/La Cathédrale Néante.mp3" id="7_u5sy4"]
+[ext_resource type="AudioStream" uid="uid://cxqsltcr8ixw2" path="res://sounds/boostburst.mp3" id="8_gee14"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iywne"]
 particle_flag_disable_z = true
@@ -50,3 +52,11 @@ color = Color(0.07683582, 0.07683582, 0.07683582, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="minigame" parent="CanvasLayer" instance=ExtResource("6_p57ef")]
+
+[node name="LaCathédraleNéante" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_u5sy4")
+autoplay = true
+parameters/looping = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_gee14")
