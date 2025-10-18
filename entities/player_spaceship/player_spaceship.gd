@@ -56,6 +56,7 @@ func _process(delta: float) -> void:
 		#remove_stuff()
 
 func _input(event):
+<<<<<<< Updated upstream
 	#if event.is_action_pressed("thrust") and bursts:
 		#apply_impulse(transform.x * engine_power, Vector2.ZERO)
 		#bursts -= 1
@@ -77,6 +78,16 @@ func _input(event):
 			var drag_dir = mouse_pos.direction_to(mouse_stop_pos)
 			apply_impulse(-drag_dir * engine_power)
 			AudioManager.play_sound_effect(boost_sound)
+=======
+	if event.is_action_pressed("thrust") and bursts:
+		apply_impulse(transform.x * engine_power, Vector2.ZERO)
+		bursts -= 1
+		#print("Hi there")
+		$"../TrustSound".play()
+		if (!bursts):
+			MiniGame.reset_me()
+			MiniGame.randomize_areas()
+>>>>>>> Stashed changes
 		
 #func remove_stuff():
 	#for obj in spawned_objects:
