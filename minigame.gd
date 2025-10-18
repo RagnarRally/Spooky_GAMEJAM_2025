@@ -37,6 +37,6 @@ func _input(event: InputEvent) -> void:
 		elif selector.position.x > green_bar.position.x - 39 and selector.position.x < green_bar.position.x + 64:
 			print("SINGLE SUCCESS")
 		else: # FAIL     
-			print("FAIL   ")
+			print("FAIL")
 			selector.position.x = 2
 			moving = true
