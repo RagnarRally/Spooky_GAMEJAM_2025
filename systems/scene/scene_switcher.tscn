@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://dgfglrs2blcgp" path="res://systems/scene/scene_switcher_entry_res.gd" id="2_6pfsd"]
 [ext_resource type="PackedScene" uid="uid://ckvdv57iaonab" path="res://scenes/main_menu.tscn" id="2_tykqi"]
 [ext_resource type="PackedScene" uid="uid://c1gpmg3iulicg" path="res://scenes/game.tscn" id="3_6pfsd"]
-[ext_resource type="PackedScene" uid="uid://cpbrahtyswmde" path="res://scenes/intro.tscn" id="5_1mk86"]
-[ext_resource type="PackedScene" uid="uid://bbgalv5ytrqh2" path="res://scenes/game_over.tscn" id="6_mc727"]
+[ext_resource type="PackedScene" path="res://scenes/intro.tscn" id="5_1mk86"]
+[ext_resource type="PackedScene" path="res://scenes/game_over.tscn" id="6_mc727"]
 
 [sub_resource type="Resource" id="Resource_mc727"]
 script = ExtResource("2_6pfsd")
