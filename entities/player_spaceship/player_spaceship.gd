@@ -19,6 +19,9 @@ const distance = 1000
 var thrust = Vector2.ZERO
 var rotation_dir = 0
 
+var dragging = false
+var mouse_pos: Vector2
+
 #const removeTimeOut = 1.0
 #var timeOut
 
@@ -53,15 +56,27 @@ func _process(delta: float) -> void:
 		#remove_stuff()
 
 func _input(event):
-	if event.is_action_pressed("thrust") and bursts:
-		apply_impulse(transform.x * engine_power, Vector2.ZERO)
-		bursts -= 1
-		#print("Hi there")
-		# $"../AudioStreamPlayer".play()
-		AudioManager.play_sound_effect(boost_sound)
-		if (!bursts):
-			MiniGame.reset_me()
-			MiniGame.randomize_areas()
+	#if event.is_action_pressed("thrust") and bursts:
+		#apply_impulse(transform.x * engine_power, Vector2.ZERO)
+		#bursts -= 1
+		##print("Hi there")
+		## $"../AudioStreamPlayer".play()
+		#AudioManager.play_sound_effect(boost_sound)
+		#if (!bursts):
+			#MiniGame.reset_me()
+			#MiniGame.randomize_areas()
+			
+	if event.is_action_pressed("left_mouse"):
+		dragging = true
+		mouse_pos = get_global_mouse_position()
+		
+	elif event.is_action_released("left_mouse"):
+		if dragging:
+			dragging = false
+			var mouse_stop_pos = get_global_mouse_position()
+			var drag_dir = mouse_pos.direction_to(mouse_stop_pos)
+			apply_impulse(-drag_dir * engine_power)
+			AudioManager.play_sound_effect(boost_sound)
 		
 #func remove_stuff():
 	#for obj in spawned_objects:

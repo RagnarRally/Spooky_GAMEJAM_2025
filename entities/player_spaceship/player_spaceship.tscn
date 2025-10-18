@@ -41,6 +41,7 @@ position = Vector2(-35, 16)
 texture = ExtResource("4_orn4k")
 
 [node name="minigame" parent="." instance=ExtResource("4_dj30g")]
+visible = false
 modulate = Color(1, 1, 1, 0.7490196)
 top_level = true
 offset_left = 96.0
