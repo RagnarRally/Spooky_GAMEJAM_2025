@@ -48,7 +48,7 @@ position = Vector2(1, -0.49999905)
 polygon = PackedVector2Array(6, -23.5, -1, -18.5, -9, -23.5, -19, -23.5, -30, -15.500001, -30, -1.500001, -6, 23.5, 4, 23.5, 27, -0.50000095, 27, -16.5, 16, -23.5)
 
 [node name="Heart" type="Sprite2D" parent="."]
-modulate = Color(5.853415, 0.7708403, 3.893123, 1)
+modulate = Color(5.852958, 0.7800529, 3.8984623, 0.49411765)
 texture = ExtResource("2_siic4")
 
 [node name="CollectibleHeart" type="Sprite2D" parent="."]
