@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpi7qqce2esn6"]
+
+[ext_resource type="PackedScene" uid="uid://tjddwca1gysp" path="res://David/david.tscn" id="1_obpml"]
+
+[sub_resource type="Gradient" id="Gradient_ig7tw"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0xm2m"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lv6w7"]
+width = 2048
+height = 2048
+noise = SubResource("FastNoiseLite_0xm2m")
+color_ramp = SubResource("Gradient_ig7tw")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_obpml"]
+radius = 229.33
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lv6w7"]
+radius = 60.0
+
+[node name="Test" type="Node2D"]
+
+[node name="RigidBody2D" parent="." instance=ExtResource("1_obpml")]
+mass = 2.0
+engine_power = 200
+spin_power = 60000
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+z_index = -1
+repeat_size = Vector2(510, 510)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(-15, 10)
+texture = SubResource("NoiseTexture2D_lv6w7")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -462)
+gravity_space_override = 1
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_obpml")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/StaticBody2D"]
+shape = SubResource("CircleShape2D_lv6w7")
