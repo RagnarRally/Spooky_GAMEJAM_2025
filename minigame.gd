@@ -4,6 +4,7 @@ extends Control
 @onready var yellow_left = $yellow_left
 @onready var yellow_right = $yellow_right
 @onready var selector = $selector
+@onready var player = $"../../RigidBody2D"
 
 @export var selector_speed = 450
 var selector_direction = 1
@@ -28,15 +29,22 @@ func _process(delta: float) -> void:
 			selector_direction = -1
 		elif selector.position.x < 2:
 			selector_direction = 1
+			
+func reset_me():
+	selector.position.x = 2
+	moving = true
 
 func _input(event: InputEvent) -> void:
+	if (player.bursts):
+		return
 	if event.is_action_pressed("selector_stop"):
 		moving = false
 		if selector.position.x > green_bar.position.x - 10 and selector.position.x < green_bar.position.x + 35:
-			print("DOUBLE SUCCESS")
+			await get_tree().create_timer(0.1).timeout
+			player.bursts = 2
 		elif selector.position.x > green_bar.position.x - 39 and selector.position.x < green_bar.position.x + 64:
-			print("SINGLE SUCCESS")
+			await get_tree().create_timer(0.1).timeout
+			player.bursts = 1
 		else: # FAIL     
-			print("FAIL")
-			selector.position.x = 2
-			moving = true
+			#print("FAIL")
+			reset_me()

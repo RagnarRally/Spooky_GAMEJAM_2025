@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://chtplhtykc8q7"]
+[gd_scene load_steps=6 format=3 uid="uid://chtplhtykc8q7"]
 
 [ext_resource type="PackedScene" uid="uid://tjddwca1gysp" path="res://David/david.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://4i8pjywpcq7b" path="res://minigame.tscn" id="2_0xm2m"]
 
 [sub_resource type="Gradient" id="Gradient_ig7tw"]
 
@@ -15,7 +16,6 @@ color_ramp = SubResource("Gradient_ig7tw")
 [node name="Node2D" type="Node2D"]
 
 [node name="RigidBody2D" parent="." instance=ExtResource("1_0xm2m")]
-engine_power = 400
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 z_index = -1
@@ -25,3 +25,7 @@ repeat_size = Vector2(2000, 1000)
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
 texture = SubResource("NoiseTexture2D_h2yge")
 centered = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="minigame" parent="CanvasLayer" instance=ExtResource("2_0xm2m")]
