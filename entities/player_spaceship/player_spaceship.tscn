@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkvu8ncimgpxm"]
+[gd_scene load_steps=6 format=3 uid="uid://dkvu8ncimgpxm"]
 
 [ext_resource type="Script" uid="uid://bsbmc15pt5t75" path="res://entities/player_spaceship/player_spaceship.gd" id="1_uu7e4"]
 [ext_resource type="Texture2D" uid="uid://bgbddn6i56oto" path="res://assets/art/Start Game/Planetship.png" id="2_dj30g"]
+[ext_resource type="PackedScene" uid="uid://4i8pjywpcq7b" path="res://minigame.tscn" id="4_dj30g"]
 [ext_resource type="Texture2D" uid="uid://2i3ttl53w1kx" path="res://assets/art/Start Game/Star_Big.png" id="4_orn4k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_erg1n"]
@@ -9,6 +10,7 @@ radius = 25.019993
 
 [node name="PlayerSpaceship" type="RigidBody2D"]
 script = ExtResource("1_uu7e4")
+engine_power = 1000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1.0588765e-06, 0.41488987, 0.5531835, 1)
@@ -26,3 +28,11 @@ texture = ExtResource("4_orn4k")
 [node name="StarBig2" type="Sprite2D" parent="."]
 position = Vector2(-35, 16)
 texture = ExtResource("4_orn4k")
+
+[node name="minigame" parent="." instance=ExtResource("4_dj30g")]
+modulate = Color(1, 1, 1, 0.7490196)
+top_level = true
+offset_left = 96.0
+offset_top = 49.0
+offset_right = 96.0
+offset_bottom = 49.0

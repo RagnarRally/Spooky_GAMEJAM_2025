@@ -40,6 +40,8 @@ func _process(delta: float) -> void:
 	if (timeOut < 0.0):
 		timeOut = removeTimeOut
 		remove_stuff()
+		
+	# minigame follow
 
 func _input(event):
 	if event.is_action_pressed("thrust") and bursts:

@@ -2,8 +2,11 @@ extends RigidBody2D
 
 @export var engine_power = 800
 @export var spin_power = 10000
+@export var minigame_offset = Vector2(100,100)
 #@export var scene : PackedScene
-@export var MiniGame : FuelMiniGame
+#@export var MiniGame : FuelMiniGame
+
+@onready var MiniGame = $minigame
 
 const distance = 1000
 
@@ -34,7 +37,9 @@ func _physics_process(_delta : float):
 	rotation_dir = Input.get_axis("rotate_left", "rotate_right")
 	constant_torque = rotation_dir * spin_power
 	
-#func _process(delta: float) -> void:
+func _process(delta: float) -> void:
+	# minigame follow
+	MiniGame.position = position + minigame_offset
 	#timeOut -= delta
 	#if (timeOut < 0.0):
 		#timeOut = removeTimeOut
