@@ -85,6 +85,7 @@ func spawn_planet():
 	var desired_position
 	var size
 	var dist
+	var is_corrupted
 
 	var valid_placement_found = false
 
@@ -92,6 +93,7 @@ func spawn_planet():
 		var angle_rad = randf_range(player_direction_angle-deg_to_rad(spawn_spread_deg), player_direction_angle+deg_to_rad(spawn_spread_deg)) 
 		dist = spawn_range #randf_range(100, 300)
 		size = randf_range(10, 32)
+		is_corrupted = randf() > 0.5
 
 		desired_position = player.global_position + Vector2.RIGHT.rotated(angle_rad) * dist
 
@@ -104,6 +106,7 @@ func spawn_planet():
 
 	var properties = PlanetProperties.new()
 	properties.size = size
+	properties.type = PlanetProperties.PlanetType.CORRUPTED if is_corrupted else PlanetProperties.PlanetType.NORMAL
 
 	var planet_instance = planet_packed.instantiate() as Planet
 	add_child(planet_instance)

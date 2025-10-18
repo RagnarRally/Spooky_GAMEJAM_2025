@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ckrpxipsrp27m"]
+[gd_scene load_steps=18 format=3 uid="uid://ckrpxipsrp27m"]
 
 [ext_resource type="Script" uid="uid://d3kn02m7watx" path="res://entities/planet/planet.gd" id="1_fhyl1"]
 [ext_resource type="Script" uid="uid://cq300ud1f7bro" path="res://entities/planet/planet_properties_res.gd" id="2_7hoq1"]
@@ -127,12 +127,18 @@ _data = {
 &"explode": SubResource("Animation_agge8")
 }
 
-[node name="Planet" type="Node2D" node_paths=PackedStringArray("_graphics_root", "collision_shape", "explosion_particles")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_agge8"]
+resource_local_to_scene = true
+radius = 147.48898
+
+[node name="Planet" type="Node2D" node_paths=PackedStringArray("_graphics_root", "collision_shape", "explosion_particles", "anim_player", "corrupted_area")]
 script = ExtResource("1_fhyl1")
 properties = SubResource("Resource_laq2e")
 _graphics_root = NodePath("Graphics")
 collision_shape = NodePath("Area2D2/CollisionShape2D")
 explosion_particles = NodePath("GPUParticles2D")
+anim_player = NodePath("AnimationPlayer")
+corrupted_area = NodePath("CorruptArea2D")
 
 [node name="ShineEffect" type="Sprite2D" parent="."]
 texture = ExtResource("3_g43px")
@@ -174,5 +180,12 @@ process_material = SubResource("ParticleProcessMaterial_hxvkj")
 libraries = {
 &"": SubResource("AnimationLibrary_1uo7p")
 }
+
+[node name="CorruptArea2D" type="Area2D" parent="."]
+linear_damp_space_override = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CorruptArea2D"]
+shape = SubResource("CircleShape2D_agge8")
+debug_color = Color(1, 0, 0.11764706, 0.23921569)
 
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
