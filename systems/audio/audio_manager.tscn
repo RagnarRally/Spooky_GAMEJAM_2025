@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://dam42x4ui1u3d"]
+[gd_scene load_steps=6 format=3 uid="uid://dam42x4ui1u3d"]
 
 [ext_resource type="Script" uid="uid://gyyreh8xtbwc" path="res://systems/audio/audio_manager.gd" id="1_v5tvu"]
+[ext_resource type="Script" uid="uid://bhlvar3pbo4j0" path="res://systems/audio/named_audio_track.gd" id="2_hqtvm"]
 [ext_resource type="PackedScene" uid="uid://curhbo71k36rx" path="res://systems/audio/positional_audio_sound_effect.tscn" id="2_sfum2"]
+[ext_resource type="AudioStream" uid="uid://davqwpwklq3wc" path="res://assets/sound/music/La Cathédrale Néante.mp3" id="3_vwk42"]
+
+[sub_resource type="Resource" id="Resource_a8vh1"]
+script = ExtResource("2_hqtvm")
+identifier = "game_music"
+description = "."
+track = ExtResource("3_vwk42")
+metadata/_custom_type_script = "uid://bhlvar3pbo4j0"
 
 [node name="AudioManager" type="Node2D" node_paths=PackedStringArray("music_audio_player", "sound_effect_template_scene")]
 script = ExtResource("1_v5tvu")
+music_tracks = Array[ExtResource("2_hqtvm")]([SubResource("Resource_a8vh1")])
 music_audio_player = NodePath("MusicAudioStreamPlayer")
 sound_effect_template_scene = NodePath("PositionalAudioSoundEffect")
 sound_effect_scene = ExtResource("2_sfum2")

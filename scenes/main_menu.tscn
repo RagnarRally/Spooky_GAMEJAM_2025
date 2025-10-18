@@ -52,6 +52,21 @@ grow_vertical = 2
 text = "..."
 horizontal_alignment = 2
 
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+offset_left = 602.0
+offset_top = 502.0
+offset_right = 1317.0
+offset_bottom = 597.0
+texture = ExtResource("4_rtw2f")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer"]
+offset_left = 154.0
+offset_top = 215.0
+offset_right = 869.0
+offset_bottom = 457.0
+texture = ExtResource("3_8ln24")
+stretch_mode = 4
+
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,11 +89,3 @@ alignment = 1
 [node name="PlayButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "PLAY"
-
-[node name="Planetship" type="Sprite2D" parent="."]
-position = Vector2(347, 344)
-texture = ExtResource("3_8ln24")
-
-[node name="Planet1" type="Sprite2D" parent="."]
-position = Vector2(1802, 1755)
-texture = ExtResource("4_rtw2f")
