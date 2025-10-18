@@ -2,6 +2,10 @@ extends Control
 
 class_name FuelMiniGame
 
+@export var success_green: ConfigurableAudioStreamResource
+@export var success_yellow: ConfigurableAudioStreamResource
+@export var fail: ConfigurableAudioStreamResource
+
 @onready var green_bar = $green
 @onready var yellow_left = $yellow_left
 @onready var yellow_right = $yellow_right
@@ -44,9 +48,12 @@ func _input(event: InputEvent) -> void:
 		if selector.position.x > green_bar.position.x - 10 and selector.position.x < green_bar.position.x + 35:
 			await get_tree().create_timer(1e-10).timeout
 			player.bursts = 2
+			AudioManager.play_sound_effect(success_green)
 		elif selector.position.x > green_bar.position.x - 39 and selector.position.x < green_bar.position.x + 64:
 			await get_tree().create_timer(1e-10).timeout
 			player.bursts = 1
+			AudioManager.play_sound_effect(success_yellow)
 		else: # FAIL     
 			#print("FAIL")
+			AudioManager.play_sound_effect(fail)
 			reset_me()
