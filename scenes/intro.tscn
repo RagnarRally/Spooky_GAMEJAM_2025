@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpbrahtyswmde"]
+[gd_scene load_steps=3 format=3 uid="uid://cpbrahtyswmde"]
 
 [ext_resource type="Texture2D" uid="uid://bgbddn6i56oto" path="res://assets/art/Start Game/Planetship.png" id="1_ioskq"]
+[ext_resource type="Script" uid="uid://bwpp1lq868dod" path="res://scenes/intro.gd" id="1_yjqpq"]
 
-[node name="Intro" type="Node2D"]
+[node name="Intro" type="Node2D" node_paths=PackedStringArray("contine_button")]
+script = ExtResource("1_yjqpq")
+contine_button = NodePath("Button")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10
@@ -40,3 +43,10 @@ theme_override_font_sizes/normal_font_size = 64
 theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 text = "[b]In a universe far far away...[/b]"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1508.0
+offset_top = 930.0
+offset_right = 1764.0
+offset_bottom = 1005.0
+text = "CONTINUE"
