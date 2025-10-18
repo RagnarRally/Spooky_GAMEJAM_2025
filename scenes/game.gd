@@ -36,4 +36,4 @@ func _on_player_died():
 	_reset.call_deferred()
 
 func _reset():
-	SceneSwitcher.change_scene_to("game_over")
+	Globals.Game_Over()
