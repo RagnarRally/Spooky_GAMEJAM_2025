@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkvu8ncimgpxm"]
+[gd_scene load_steps=11 format=3 uid="uid://dkvu8ncimgpxm"]
 
 [ext_resource type="Script" uid="uid://bsbmc15pt5t75" path="res://entities/player_spaceship/player_spaceship.gd" id="1_uu7e4"]
 [ext_resource type="Texture2D" uid="uid://bgbddn6i56oto" path="res://assets/art/Start Game/Planetship.png" id="2_dj30g"]
@@ -14,9 +14,6 @@ script = ExtResource("2_my5lt")
 stream = ExtResource("3_4ivy3")
 metadata/_custom_type_script = "uid://cnqhqro3npd0c"
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_4ivy3"]
-points = PackedVector2Array(-37, 33, 42, 25, 51, -4, 29, -29, -47, -25, -51, 8)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_kecd5"]
 radius = 22.0
 
@@ -31,8 +28,9 @@ rotation = 0.35023984
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_dj30g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("ConvexPolygonShape2D_4ivy3")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-2.079402, 1.1176723)
+polygon = PackedVector2Array(-44.920593, -26.117674, -48.920593, 6.882328, -33.920593, 31.882326, 44.079403, 23.882328, 53.079407, -5.117672, 31.079403, -30.117672)
 
 [node name="StarBig" type="Sprite2D" parent="."]
 position = Vector2(-47, -4)

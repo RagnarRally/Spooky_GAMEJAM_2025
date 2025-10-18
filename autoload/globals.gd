@@ -3,6 +3,9 @@ extends Node
 const MAX_HP = 3
 var healthPoints = MAX_HP
 
+const HEART_FULL = preload("res://assets/art/Objects/Collectible_Heart.png")
+const HEART_EMPTY = preload("res://assets/art/Objects/Heart_Empty.png")
+
 func Game_Over():
 	SceneSwitcher.change_scene_to("game_over") 
 	healthPoints = MAX_HP
