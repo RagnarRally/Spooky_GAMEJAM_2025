@@ -1,5 +1,5 @@
-extends AudioStreamPlayer2D
-class_name PositionalAudioSoundEffect
+extends AudioStreamPlayer
+class_name AudioSoundEffect
 
 var _destroy_on_complete: bool = true
 
@@ -15,7 +15,6 @@ func setup(audio: ConfigurableAudioStreamResource, destroy_on_complete: bool = t
 	_destroy_on_complete = destroy_on_complete
 
 	play()
-	print("Played sound")
 
 func _on_finished() -> void:
 	if _destroy_on_complete:

@@ -1,9 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkvu8ncimgpxm"]
+[gd_scene load_steps=9 format=3 uid="uid://dkvu8ncimgpxm"]
 
 [ext_resource type="Script" uid="uid://bsbmc15pt5t75" path="res://entities/player_spaceship/player_spaceship.gd" id="1_uu7e4"]
 [ext_resource type="Texture2D" uid="uid://bgbddn6i56oto" path="res://assets/art/Start Game/Planetship.png" id="2_dj30g"]
+[ext_resource type="Script" uid="uid://cnqhqro3npd0c" path="res://systems/audio/configurable_audio_stream_resource.gd" id="2_my5lt"]
+[ext_resource type="AudioStream" uid="uid://1cgx8bjon55m" path="res://assets/sound/effects/boostburst.mp3" id="3_7s63r"]
 [ext_resource type="PackedScene" uid="uid://4i8pjywpcq7b" path="res://minigame.tscn" id="4_dj30g"]
 [ext_resource type="Texture2D" uid="uid://2i3ttl53w1kx" path="res://assets/art/Start Game/Star_Big.png" id="4_orn4k"]
+
+[sub_resource type="Resource" id="Resource_4ivy3"]
+script = ExtResource("2_my5lt")
+stream = ExtResource("3_7s63r")
+audio_bus = &"Sound Effect"
+metadata/_custom_type_script = "uid://cnqhqro3npd0c"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_erg1n"]
 radius = 25.019993
@@ -11,6 +19,7 @@ radius = 25.019993
 [node name="PlayerSpaceship" type="RigidBody2D"]
 script = ExtResource("1_uu7e4")
 engine_power = 1000
+boost_sound = SubResource("Resource_4ivy3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1.0588765e-06, 0.41488987, 0.5531835, 1)

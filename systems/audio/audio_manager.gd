@@ -2,8 +2,8 @@ extends Node2D
 
 @export var music_tracks: Array[NamedAudioTrack] = []
 @export var music_audio_player: AudioStreamPlayer
-@export var sound_effect_template_scene: PositionalAudioSoundEffect
 @export var sound_effect_scene: PackedScene
+@export var sound_effect_scene_positional: PackedScene
 
 var _music_dict: Dictionary = {}
 
@@ -14,6 +14,12 @@ func play_sound_effect(audio: ConfigurableAudioStreamResource, destroy_on_comple
 	var new_node := sound_effect_scene.instantiate()
 	add_child(new_node)
 	new_node.setup(audio, destroy_on_complete)
+
+func play_sound_effect_positional(audio: ConfigurableAudioStreamResource, sound_global_position: Vector2, destroy_on_complete: bool = true):
+	var new_node := sound_effect_scene.instantiate()
+	add_child(new_node)
+	new_node.setup(audio, destroy_on_complete)
+	new_node.global_position = sound_global_position
 
 func change_music(track_name: String, fade_out_time: float = 0.5, fade_in_time: float = 0.5):
 

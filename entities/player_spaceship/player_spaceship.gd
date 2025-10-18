@@ -6,6 +6,8 @@ extends RigidBody2D
 #@export var scene : PackedScene
 #@export var MiniGame : FuelMiniGame
 
+@export var boost_sound: ConfigurableAudioStreamResource
+
 @onready var MiniGame = $minigame
 
 const distance = 1000
@@ -50,7 +52,8 @@ func _input(event):
 		apply_impulse(transform.x * engine_power, Vector2.ZERO)
 		bursts -= 1
 		#print("Hi there")
-		$"../AudioStreamPlayer".play()
+		# $"../AudioStreamPlayer".play()
+		AudioManager.play_sound_effect(boost_sound)
 		if (!bursts):
 			MiniGame.reset_me()
 			MiniGame.randomize_areas()
