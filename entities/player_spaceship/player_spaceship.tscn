@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkvu8ncimgpxm"]
+[gd_scene load_steps=12 format=3 uid="uid://dkvu8ncimgpxm"]
 
 [ext_resource type="Script" uid="uid://bsbmc15pt5t75" path="res://entities/player_spaceship/player_spaceship.gd" id="1_uu7e4"]
 [ext_resource type="Texture2D" uid="uid://bgbddn6i56oto" path="res://assets/art/Start Game/Planetship.png" id="2_dj30g"]
@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://1cgx8bjon55m" path="res://assets/sound/effects/boostburst.mp3" id="3_7s63r"]
 [ext_resource type="PackedScene" uid="uid://4i8pjywpcq7b" path="res://minigame.tscn" id="4_dj30g"]
 [ext_resource type="Texture2D" uid="uid://2i3ttl53w1kx" path="res://assets/art/Start Game/Star_Big.png" id="4_orn4k"]
+[ext_resource type="Script" uid="uid://eeq6vhap3ndi" path="res://systems/health/health_component.gd" id="7_4ivy3"]
+[ext_resource type="Script" uid="uid://de34r324se8ca" path="res://systems/health/hitbox_component.gd" id="8_iotih"]
 
 [sub_resource type="Resource" id="Resource_4ivy3"]
 script = ExtResource("2_my5lt")
@@ -15,6 +17,9 @@ metadata/_custom_type_script = "uid://cnqhqro3npd0c"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_erg1n"]
 radius = 25.019993
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kecd5"]
+radius = 16.0
 
 [node name="PlayerSpaceship" type="RigidBody2D"]
 script = ExtResource("1_uu7e4")
@@ -45,3 +50,15 @@ offset_left = 96.0
 offset_top = 49.0
 offset_right = 96.0
 offset_bottom = 49.0
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("7_4ivy3")
+metadata/_custom_type_script = "uid://eeq6vhap3ndi"
+
+[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("8_iotih")
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://de34r324se8ca"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_kecd5")

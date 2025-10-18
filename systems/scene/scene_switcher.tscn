@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxpu23fe46gdm"]
+[gd_scene load_steps=15 format=3 uid="uid://cxpu23fe46gdm"]
 
 [ext_resource type="Script" uid="uid://ghhhsugxmp0n" path="res://systems/scene/scene_switcher.gd" id="1_u0oyj"]
 [ext_resource type="Script" uid="uid://dgfglrs2blcgp" path="res://systems/scene/scene_switcher_entry_res.gd" id="2_6pfsd"]
 [ext_resource type="PackedScene" uid="uid://ckvdv57iaonab" path="res://scenes/main_menu.tscn" id="2_tykqi"]
 [ext_resource type="PackedScene" uid="uid://c1gpmg3iulicg" path="res://scenes/game.tscn" id="3_6pfsd"]
+[ext_resource type="PackedScene" uid="uid://cpbrahtyswmde" path="res://scenes/intro.tscn" id="5_1mk86"]
+[ext_resource type="PackedScene" uid="uid://bbgalv5ytrqh2" path="res://scenes/game_over.tscn" id="6_mc727"]
 
 [sub_resource type="Resource" id="Resource_mc727"]
 script = ExtResource("2_6pfsd")
@@ -15,6 +17,18 @@ metadata/_custom_type_script = "uid://dgfglrs2blcgp"
 script = ExtResource("2_6pfsd")
 scene_name = "game"
 scene_packed = ExtResource("3_6pfsd")
+metadata/_custom_type_script = "uid://dgfglrs2blcgp"
+
+[sub_resource type="Resource" id="Resource_wsspx"]
+script = ExtResource("2_6pfsd")
+scene_name = "intro"
+scene_packed = ExtResource("5_1mk86")
+metadata/_custom_type_script = "uid://dgfglrs2blcgp"
+
+[sub_resource type="Resource" id="Resource_1054e"]
+script = ExtResource("2_6pfsd")
+scene_name = "game_over"
+scene_packed = ExtResource("6_mc727")
 metadata/_custom_type_script = "uid://dgfglrs2blcgp"
 
 [sub_resource type="Animation" id="Animation_c2sdn"]
@@ -74,7 +88,7 @@ _data = {
 
 [node name="SceneSwitcher" type="Node2D" node_paths=PackedStringArray("animation_player", "color_rect")]
 script = ExtResource("1_u0oyj")
-defined_scenes = Array[ExtResource("2_6pfsd")]([SubResource("Resource_mc727"), SubResource("Resource_8n68l")])
+defined_scenes = Array[ExtResource("2_6pfsd")]([SubResource("Resource_mc727"), SubResource("Resource_8n68l"), SubResource("Resource_wsspx"), SubResource("Resource_1054e")])
 animation_player = NodePath("AnimationPlayer")
 color_rect = NodePath("CanvasLayer/ColorRect")
 
