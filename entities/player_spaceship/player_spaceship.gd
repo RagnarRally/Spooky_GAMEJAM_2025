@@ -5,7 +5,7 @@ signal died
 
 @export var engine_power = 800
 @export var spin_power = 10000
-@export var minigame_offset = Vector2(100,100)
+@export var minigame_offset = Vector2(-170,100)
 #@export var scene : PackedScene
 #@export var MiniGame : FuelMiniGame
 
