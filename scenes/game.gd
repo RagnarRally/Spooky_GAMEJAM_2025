@@ -1,11 +1,15 @@
 extends Node2D
 
+@export var player_spaceship: PlayerSpacehip
 @export var camera: Camera2D
 
 var zoomed: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
+	player_spaceship.died.connect(_on_player_died)
+
 	pass
 	# AudioManager.change_music("game_music")
 
@@ -27,3 +31,9 @@ func _input(event: InputEvent) -> void:
 		SceneSwitcher.change_scene_to("main_menu")
 	if event.is_action_released("restart"):
 		get_tree().reload_current_scene()
+
+func _on_player_died():
+	_reset.call_deferred()
+
+func _reset():
+	get_tree().reload_current_scene()

@@ -1,4 +1,7 @@
 extends RigidBody2D
+class_name PlayerSpacehip
+
+signal died
 
 @export var engine_power = 800
 @export var spin_power = 10000
@@ -8,6 +11,7 @@ extends RigidBody2D
 
 @export var boost_sound: ConfigurableAudioStreamResource
 
+@onready var health_component: HealthComponent = $HealthComponent
 @onready var MiniGame = $minigame
 
 const distance = 1000
@@ -24,7 +28,8 @@ const MAX_DISTANCE = 2000
 
 var bursts = 0
 
-#func _ready() -> void:
+func _ready() -> void:
+	health_component.health_zero.connect(_on_health_zero)
 	#timeOut = removeTimeOut
 	#while true:
 		#await get_tree().create_timer(2.0).timeout
@@ -63,3 +68,6 @@ func _input(event):
 		#if obj.position.distance_to(position) > MAX_DISTANCE:
 			#obj.queue_free()	
 			#spawned_objects.erase(obj)
+
+func _on_health_zero(attack):
+	died.emit()
