@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://dio2coqltxbpt"]
+
+[ext_resource type="Texture2D" uid="uid://bncamdmpfwctn" path="res://sprites/minigame/background.png" id="1_176e0"]
+[ext_resource type="Script" uid="uid://dttoq1txhjxx4" path="res://minigame.gd" id="1_g8igt"]
+[ext_resource type="Texture2D" uid="uid://bke4jj2lkj5bu" path="res://sprites/minigame/foreground.png" id="2_g8igt"]
+[ext_resource type="Texture2D" uid="uid://b6mbhtmq3nga0" path="res://sprites/minigame/green area.png" id="3_hd7sm"]
+[ext_resource type="Texture2D" uid="uid://cxe1lij57d11y" path="res://sprites/minigame/yellow area.png" id="4_7yo4d"]
+[ext_resource type="Texture2D" uid="uid://c6j4ufc33ctn6" path="res://sprites/minigame/selector.png" id="5_bwg5g"]
+
+[node name="minigame" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_g8igt")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 350.0
+offset_bottom = 70.0
+texture = ExtResource("1_176e0")
+
+[node name="foreground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 350.0
+offset_bottom = 60.0
+texture = ExtResource("2_g8igt")
+
+[node name="green" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 10.0
+offset_right = 116.0
+offset_bottom = 60.0
+texture = ExtResource("3_hd7sm")
+
+[node name="yellow_left" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 10.0
+offset_right = 145.0
+offset_bottom = 60.0
+texture = ExtResource("4_7yo4d")
+
+[node name="yellow_right" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 10.0
+offset_right = 203.0
+offset_bottom = 60.0
+texture = ExtResource("4_7yo4d")
+
+[node name="selector" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 7.0
+offset_right = 10.0
+offset_bottom = 63.0
+texture = ExtResource("5_bwg5g")

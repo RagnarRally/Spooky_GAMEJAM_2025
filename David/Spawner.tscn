@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxg6m0tm8gwgn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5r3q8"]
-radius = 229.33
+radius = 300.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wispp"]
 radius = 60.0
@@ -11,6 +11,7 @@ gravity_space_override = 1
 gravity_point = true
 gravity_point_center = Vector2(0, 0)
 gravity_direction = Vector2(0, 0)
+gravity = 600.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5r3q8")
