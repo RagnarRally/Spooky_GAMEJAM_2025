@@ -1,38 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://4i8pjywpcq7b"]
+[gd_scene load_steps=7 format=3 uid="uid://4i8pjywpcq7b"]
 
 [ext_resource type="Texture2D" uid="uid://bncamdmpfwctn" path="res://sprites/minigame/background.png" id="1_176e0"]
 [ext_resource type="Script" uid="uid://dttoq1txhjxx4" path="res://minigame.gd" id="1_g8igt"]
 [ext_resource type="Texture2D" uid="uid://bke4jj2lkj5bu" path="res://sprites/minigame/foreground.png" id="2_g8igt"]
-[ext_resource type="Script" uid="uid://cnqhqro3npd0c" path="res://systems/audio/configurable_audio_stream_resource.gd" id="2_h6s1p"]
-[ext_resource type="AudioStream" uid="uid://b2v880wcjwmv2" path="res://assets/sound/effects/success_green.mp3" id="3_exrit"]
 [ext_resource type="Texture2D" uid="uid://b6mbhtmq3nga0" path="res://sprites/minigame/green area.png" id="3_hd7sm"]
 [ext_resource type="Texture2D" uid="uid://cxe1lij57d11y" path="res://sprites/minigame/yellow area.png" id="4_7yo4d"]
-[ext_resource type="AudioStream" uid="uid://bf07dr75mgt0u" path="res://assets/sound/effects/success_yellow.mp3" id="4_361bs"]
 [ext_resource type="Texture2D" uid="uid://c6j4ufc33ctn6" path="res://sprites/minigame/selector.png" id="5_bwg5g"]
-[ext_resource type="AudioStream" uid="uid://e48dhdmgp8xw" path="res://assets/sound/effects/boost_fail.mp3" id="5_e647g"]
-
-[sub_resource type="Resource" id="Resource_i6l67"]
-script = ExtResource("2_h6s1p")
-stream = ExtResource("3_exrit")
-metadata/_custom_type_script = "uid://cnqhqro3npd0c"
-
-[sub_resource type="Resource" id="Resource_eeu0p"]
-script = ExtResource("2_h6s1p")
-stream = ExtResource("4_361bs")
-metadata/_custom_type_script = "uid://cnqhqro3npd0c"
-
-[sub_resource type="Resource" id="Resource_c7bn6"]
-script = ExtResource("2_h6s1p")
-stream = ExtResource("5_e647g")
-metadata/_custom_type_script = "uid://cnqhqro3npd0c"
 
 [node name="minigame" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_g8igt")
-success_green = SubResource("Resource_i6l67")
-success_yellow = SubResource("Resource_eeu0p")
-fail = SubResource("Resource_c7bn6")
 metadata/_edit_use_anchors_ = true
 
 [node name="background" type="TextureRect" parent="."]
