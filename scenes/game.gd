@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var player_spaceship: PlayerSpacehip
+@export var player_spaceship: PlayerSpaceship
 @export var camera: Camera2D
 
 var zoomed: bool = true
@@ -21,7 +21,6 @@ func _process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-
 	if event.is_action_pressed("debug1"):
 		pass
 	if event.is_action_pressed("debug2"):

@@ -1,7 +1,11 @@
 extends RigidBody2D
-class_name PlayerSpacehip
+class_name PlayerSpaceship
 
 signal died
+
+# FOR FLICKING
+var dragging = false
+var mouse_pos: Vector2
 
 @export var engine_power = 800
 @export var spin_power = 10000
@@ -13,11 +17,15 @@ signal died
 
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var MiniGame = $minigame
+@onready var drag_hint = $drag_hint
+@onready var drag_hint_dot = $drag_hint/dot
 
 const distance = 1000
 
 var thrust = Vector2.ZERO
 var rotation_dir = 0
+
+var screen_center: Vector2
 
 #const removeTimeOut = 1.0
 #var timeOut
@@ -30,6 +38,7 @@ var bursts = 0
 
 func _ready() -> void:
 	health_component.health_zero.connect(_on_health_zero)
+	screen_center = get_viewport_rect().size / 2
 	#timeOut = removeTimeOut
 	#while true:
 		#await get_tree().create_timer(2.0).timeout
@@ -46,11 +55,24 @@ func _physics_process(_delta : float):
 	
 func _process(delta: float) -> void:
 	# minigame follow
-	MiniGame.position = position + minigame_offset
+	#MiniGame.position = position + minigame_offset
 	#timeOut -= delta
 	#if (timeOut < 0.0):
 		#timeOut = removeTimeOut
 		#remove_stuff()
+	if dragging:
+		var mouse_pos = get_global_mouse_position()
+		drag_hint.visible = true
+		drag_hint.position = position
+		var rot_dir = drag_hint.global_position.direction_to(mouse_pos)
+		drag_hint.look_at(drag_hint.global_position - rot_dir)
+		#if get_global_mouse_position().distance_to(screen_center) < drag_hint.global_position.distance_to(screen_center):
+			#drag_hint_dot.global_position = mouse_pos
+		#else:
+			#drag_hint_dot.global_position = screen_center
+		drag_hint_dot.global_position = mouse_pos
+	else:
+		drag_hint.visible = false
 
 func _input(event):
 	if event.is_action_pressed("thrust") and bursts:
@@ -62,6 +84,18 @@ func _input(event):
 		if (!bursts):
 			MiniGame.reset_me()
 			MiniGame.randomize_areas()
+			
+	if event.is_action_pressed("left_mouse"):
+		dragging = true
+		mouse_pos = get_global_mouse_position()
+		
+	elif event.is_action_released("left_mouse"):
+		if dragging:
+			dragging = false
+			var mouse_stop_pos = get_global_mouse_position()
+			var drag_dir = mouse_pos.direction_to(mouse_stop_pos)
+			apply_impulse(-drag_dir * engine_power)
+			AudioManager.play_sound_effect(boost_sound)
 		
 #func remove_stuff():
 	#for obj in spawned_objects:

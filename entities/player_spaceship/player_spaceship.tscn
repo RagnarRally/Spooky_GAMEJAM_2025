@@ -1,17 +1,21 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkvu8ncimgpxm"]
+[gd_scene load_steps=16 format=3 uid="uid://dkvu8ncimgpxm"]
 
 [ext_resource type="Script" uid="uid://bsbmc15pt5t75" path="res://entities/player_spaceship/player_spaceship.gd" id="1_uu7e4"]
 [ext_resource type="Texture2D" uid="uid://bgbddn6i56oto" path="res://assets/art/Start Game/Planetship.png" id="2_dj30g"]
 [ext_resource type="Script" uid="uid://cnqhqro3npd0c" path="res://systems/audio/configurable_audio_stream_resource.gd" id="2_my5lt"]
-[ext_resource type="AudioStream" uid="uid://1cgx8bjon55m" path="res://assets/sound/effects/boostburst.mp3" id="3_7s63r"]
+[ext_resource type="AudioStream" uid="uid://cnaf0iyetjajw" path="res://assets/sound/effects/thrust_new.wav" id="3_4ivy3"]
 [ext_resource type="PackedScene" uid="uid://4i8pjywpcq7b" path="res://minigame.tscn" id="4_dj30g"]
 [ext_resource type="Texture2D" uid="uid://2i3ttl53w1kx" path="res://assets/art/Start Game/Star_Big.png" id="4_orn4k"]
 [ext_resource type="Script" uid="uid://eeq6vhap3ndi" path="res://systems/health/health_component.gd" id="7_4ivy3"]
 [ext_resource type="Script" uid="uid://de34r324se8ca" path="res://systems/health/hitbox_component.gd" id="8_iotih"]
+[ext_resource type="Texture2D" uid="uid://dmof4aoe5fxxx" path="res://assets/art/Drag Hint/Hint_Edge_Effect.png" id="9_t5s3e"]
+[ext_resource type="Texture2D" uid="uid://ekec3xbyxp5y" path="res://assets/art/Drag Hint/Hint_Arrow.png" id="10_a76q8"]
+[ext_resource type="Texture2D" uid="uid://c8lhs8l5mhbtu" path="res://assets/art/Drag Hint/Hint_Circle.png" id="11_srflq"]
+[ext_resource type="Texture2D" uid="uid://pla0v2bp8i7d" path="res://assets/art/Drag Hint/Hint_Dot.png" id="12_87ga5"]
 
 [sub_resource type="Resource" id="Resource_4ivy3"]
 script = ExtResource("2_my5lt")
-stream = ExtResource("3_7s63r")
+stream = ExtResource("3_4ivy3")
 audio_bus = &"Sound Effect"
 metadata/_custom_type_script = "uid://cnqhqro3npd0c"
 
@@ -24,6 +28,8 @@ radius = 16.0
 [node name="PlayerSpaceship" type="RigidBody2D"]
 script = ExtResource("1_uu7e4")
 engine_power = 1000
+spin_power = null
+minigame_offset = null
 boost_sound = SubResource("Resource_4ivy3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -44,6 +50,7 @@ position = Vector2(-35, 16)
 texture = ExtResource("4_orn4k")
 
 [node name="minigame" parent="." instance=ExtResource("4_dj30g")]
+visible = false
 modulate = Color(1, 1, 1, 0.7490196)
 top_level = true
 offset_left = 96.0
@@ -62,3 +69,22 @@ metadata/_custom_type_script = "uid://de34r324se8ca"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_kecd5")
+
+[node name="drag_hint" type="Node2D" parent="."]
+top_level = true
+
+[node name="edge" type="Sprite2D" parent="drag_hint"]
+texture = ExtResource("9_t5s3e")
+
+[node name="arrow" type="Sprite2D" parent="drag_hint"]
+visible = false
+position = Vector2(-156, 0)
+texture = ExtResource("10_a76q8")
+
+[node name="circle" type="Sprite2D" parent="drag_hint"]
+position = Vector2(-92, 0)
+texture = ExtResource("11_srflq")
+
+[node name="dot" type="Sprite2D" parent="drag_hint"]
+position = Vector2(-92, 0)
+texture = ExtResource("12_87ga5")
