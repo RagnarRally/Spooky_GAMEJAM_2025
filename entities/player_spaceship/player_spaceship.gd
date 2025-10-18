@@ -44,7 +44,7 @@ func _input(event):
 	if event.is_action_pressed("thrust") and bursts:
 		apply_impulse(transform.x * engine_power, Vector2.ZERO)
 		bursts -= 1
-		print("Hi there")
+		#print("Hi there")
 		if (!bursts):
 			MiniGame.reset_me()
 			MiniGame.randomize_areas()
