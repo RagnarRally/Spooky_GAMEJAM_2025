@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpbrahtyswmde"]
+[gd_scene load_steps=3 format=3 uid="uid://dugpck31w7q4h"]
 
 [ext_resource type="Texture2D" uid="uid://bgbddn6i56oto" path="res://assets/art/Start Game/Planetship.png" id="1_ioskq"]
 [ext_resource type="Script" uid="uid://bwpp1lq868dod" path="res://scenes/intro.gd" id="1_yjqpq"]
