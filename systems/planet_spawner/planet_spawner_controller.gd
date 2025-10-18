@@ -163,7 +163,7 @@ func spawn_resource():
 	var resource_instance = resource_packed.instantiate()
 	add_child(resource_instance)
 	resource_instance.global_position = desired_position
-
+ 
 	_spawned_resources.append(resource_instance)
 
 	return true
