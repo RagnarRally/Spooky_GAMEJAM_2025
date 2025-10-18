@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxtiwq6y4dlho"]
+
+[ext_resource type="Script" uid="uid://ckff3x7uf5m8v" path="res://entities/cosmic_horror/cosmic_horror.gd" id="1_ycul8"]
+[ext_resource type="Texture2D" uid="uid://brtmmolsjxiyu" path="res://assets/art/temp/cosmic_horror-removebg-preview.png" id="2_exeht"]
+
+[node name="CosmicHorror" type="Node2D"]
+script = ExtResource("1_ycul8")
+
+[node name="CosmicHorrorRemovebgPreview" type="Sprite2D" parent="."]
+texture = ExtResource("2_exeht")
