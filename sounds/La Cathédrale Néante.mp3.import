@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3t2ss6qvd55i"
+path="res://.godot/imported/La Cathédrale Néante.mp3-a5ec6e4db38f5685835dc9e159781205.mp3str"
+
+[deps]
+
+source_file="res://sounds/La Cathédrale Néante.mp3"
+dest_files=["res://.godot/imported/La Cathédrale Néante.mp3-a5ec6e4db38f5685835dc9e159781205.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
