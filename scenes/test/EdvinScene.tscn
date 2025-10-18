@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2d3k8vgb6eeh"]
+
+[ext_resource type="Script" uid="uid://b3fiddcai3dfo" path="res://scenes/test/edvin_scene.gd" id="1_17cmv"]
+[ext_resource type="PackedScene" uid="uid://6wo182se5ki" path="res://scenes/test/components/planet_spawner_controller.tscn" id="2_qcovl"]
+[ext_resource type="PackedScene" uid="uid://ckrpxipsrp27m" path="res://scenes/test/planet.tscn" id="3_riq1m"]
+[ext_resource type="PackedScene" uid="uid://1v1prufly1iy" path="res://scenes/test/entities/e_player_spaceship.tscn" id="4_riq1m"]
+[ext_resource type="Texture2D" uid="uid://cbmtggq0spdp4" path="res://assets/art/Star_small.png" id="5_erg1n"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_erg1n"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 1000, 1)
+gravity = Vector3(0, 0, 0)
+
+[node name="EdvinScene" type="Node2D" node_paths=PackedStringArray("planet_spawner", "camera")]
+script = ExtResource("1_17cmv")
+planet_spawner = NodePath("PlanetSpawnerController")
+camera = NodePath("EPlayerSpaceship/Camera2D")
+
+[node name="PlanetSpawnerController" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_qcovl")]
+position = Vector2(556, 318)
+planet_packed = ExtResource("3_riq1m")
+player = NodePath("../EPlayerSpaceship")
+
+[node name="EPlayerSpaceship" parent="." instance=ExtResource("4_riq1m")]
+position = Vector2(436, 311)
+linear_velocity = Vector2(200, 0)
+
+[node name="Camera2D" type="Camera2D" parent="EPlayerSpaceship"]
+limit_enabled = false
+position_smoothing_enabled = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="EPlayerSpaceship"]
+position = Vector2(8, 2)
+amount = 100
+texture = ExtResource("5_erg1n")
+lifetime = 20.0
+preprocess = 20.0
+process_material = SubResource("ParticleProcessMaterial_erg1n")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07683582, 0.07683582, 0.07683582, 1)

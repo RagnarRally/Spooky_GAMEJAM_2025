@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://1v1prufly1iy"]
+
+[ext_resource type="Script" uid="uid://d3v6vajtu7qqr" path="res://scenes/test/entities/e_player_spaceship.gd" id="1_5dpjb"]
+[ext_resource type="Texture2D" uid="uid://bfqhhw1rjjv0e" path="res://icon.svg" id="1_gq8uh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_erg1n"]
+radius = 25.019993
+
+[node name="EPlayerSpaceship" type="RigidBody2D"]
+script = ExtResource("1_5dpjb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1.0588765e-06, 0.41488987, 0.5531835, 1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_gq8uh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(1.0588765e-06, 0.41488987, 0.5531835, 1)
+position = Vector2(37.999996, 0)
+scale = Vector2(0.4, 0.1)
+texture = ExtResource("1_gq8uh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_erg1n")
