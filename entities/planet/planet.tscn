@@ -13,6 +13,7 @@ metadata/_custom_type_script = "uid://cq300ud1f7bro"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0pdj7"]
 resource_local_to_scene = true
+radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_itihs"]
 radius = 256.0
@@ -45,7 +46,7 @@ color_ramp = SubResource("GradientTexture1D_1uo7p")
 script = ExtResource("1_fhyl1")
 properties = SubResource("Resource_laq2e")
 _graphics_root = NodePath("Graphics")
-collision_shape = NodePath("StaticBody2D/CollisionShape2D")
+collision_shape = NodePath("Area2D2/CollisionShape2D")
 
 [node name="ShineEffect" type="Sprite2D" parent="."]
 texture = ExtResource("3_g43px")
@@ -56,9 +57,9 @@ texture = ExtResource("3_g43px")
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("3_itihs")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Area2D2" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 shape = SubResource("CircleShape2D_0pdj7")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -80,3 +81,5 @@ lifetime = 0.6
 one_shot = true
 explosiveness = 0.64
 process_material = SubResource("ParticleProcessMaterial_hxvkj")
+
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

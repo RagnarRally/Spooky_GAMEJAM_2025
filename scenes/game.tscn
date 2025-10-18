@@ -64,7 +64,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 67.0
-text = "Points: 0"
+text = "HP: 3"
 
 [node name="CosmicHorror" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_u5sy4")]
 position = Vector2(-16, 545)
