@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1gpmg3iulicg"]
+[gd_scene load_steps=9 format=3 uid="uid://c1gpmg3iulicg"]
 
 [ext_resource type="Script" uid="uid://dgwa6pxgwf8w5" path="res://scenes/game.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://dkvu8ncimgpxm" path="res://entities/player_spaceship/player_spaceship.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://cbmtggq0spdp4" path="res://assets/art/Star_small.png" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://6wo182se5ki" path="res://systems/planet_spawner/planet_spawner_controller.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://ckrpxipsrp27m" path="res://entities/planet/planet.tscn" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bn4jat02k60lv" path="res://entities/resource/resource.tscn" id="6_u5sy4"]
 [ext_resource type="AudioStream" uid="uid://cxqsltcr8ixw2" path="res://sounds/boostburst.mp3" id="8_gee14"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iywne"]
@@ -34,6 +35,7 @@ process_material = SubResource("ParticleProcessMaterial_iywne")
 
 [node name="PlanetSpawnerController" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_lnu2h")]
 planet_packed = ExtResource("3_lbhrr")
+resource_packed = ExtResource("6_u5sy4")
 player = NodePath("../PlayerSpaceship")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -47,6 +49,11 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.07683582, 0.07683582, 0.07683582, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 67.0
+text = "Points: "
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_gee14")

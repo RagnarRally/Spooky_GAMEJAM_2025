@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://dy6q1wweqm4wg"
 
 SceneSwitcher="*res://systems/scene/scene_switcher.tscn"
 AudioManager="*res://systems/audio/audio_manager.tscn"
+Globals="*res://Globals.gd"
 
 [display]
 

@@ -5,8 +5,8 @@ class_name CosmicHorror
 
 enum {CHASING, RESTING}
 var sm:= CSM.new({	
-    CHASING: {CSM.ENTER: _chasing_enter, CSM.PROCESS: _chasing_process},
-    RESTING: {CSM.ENTER: _resting_enter, CSM.PROCESS: _resting_process,}
+	CHASING: {CSM.ENTER: _chasing_enter, CSM.PROCESS: _chasing_process},
+	RESTING: {CSM.ENTER: _resting_enter, CSM.PROCESS: _resting_process,}
 })
 
 var chase_time: float = 3
@@ -39,4 +39,3 @@ func _resting_process(delta):
 
 	if _current_chase_time <= 0:
 		sm.switch(CHASING)
-
