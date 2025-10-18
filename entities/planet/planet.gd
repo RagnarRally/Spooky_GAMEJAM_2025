@@ -28,8 +28,8 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 
 	explode_planet()
 	
-func _process(delta: float) -> void:
-	print(Globals.healthPoints)
+#func _process(delta: float) -> void:
+	#print(Globals.healthPoints)
 
 func explode_planet():
 	anim_player.play("explode")
