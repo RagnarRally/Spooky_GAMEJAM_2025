@@ -7,6 +7,7 @@ class_name Planet
 @export var collision_shape: CollisionShape2D
 
 @export var explosion_particles: GPUParticles2D
+@export var anim_player: AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,6 +26,9 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	if Globals.healthPoints < 0:
 		print("Girl Got You")
 
-	explosion_particles.emitting = true
-	await get_tree().create_timer(1).timeout
+	explode_planet()
+
+func explode_planet():
+	anim_player.play("explode")
+	await anim_player.animation_finished
 	queue_free()
