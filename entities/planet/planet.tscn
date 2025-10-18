@@ -42,11 +42,12 @@ initial_velocity_max = 123.77
 scale_curve = SubResource("CurveTexture_344kx")
 color_ramp = SubResource("GradientTexture1D_1uo7p")
 
-[node name="Planet" type="Node2D" node_paths=PackedStringArray("_graphics_root", "collision_shape")]
+[node name="Planet" type="Node2D" node_paths=PackedStringArray("_graphics_root", "collision_shape", "explosion_particles")]
 script = ExtResource("1_fhyl1")
 properties = SubResource("Resource_laq2e")
 _graphics_root = NodePath("Graphics")
 collision_shape = NodePath("Area2D2/CollisionShape2D")
+explosion_particles = NodePath("GPUParticles2D")
 
 [node name="ShineEffect" type="Sprite2D" parent="."]
 texture = ExtResource("3_g43px")
