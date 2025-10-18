@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dio2coqltxbpt"]
+[gd_scene load_steps=7 format=3 uid="uid://4i8pjywpcq7b"]
 
 [ext_resource type="Texture2D" uid="uid://bncamdmpfwctn" path="res://sprites/minigame/background.png" id="1_176e0"]
 [ext_resource type="Script" uid="uid://dttoq1txhjxx4" path="res://minigame.gd" id="1_g8igt"]
@@ -11,6 +11,7 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_g8igt")
+metadata/_edit_use_anchors_ = true
 
 [node name="background" type="TextureRect" parent="."]
 layout_mode = 0
