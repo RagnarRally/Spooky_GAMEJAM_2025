@@ -22,7 +22,7 @@ radius = 22.0
 
 [node name="PlayerSpaceship" type="RigidBody2D"]
 script = ExtResource("1_uu7e4")
-engine_power = 1000
+engine_power = 5000
 boost_sound = SubResource("Resource_iotih")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
