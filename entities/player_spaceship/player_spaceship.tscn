@@ -15,11 +15,11 @@ stream = ExtResource("3_7s63r")
 audio_bus = &"Sound Effect"
 metadata/_custom_type_script = "uid://cnqhqro3npd0c"
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_erg1n"]
-radius = 25.019993
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_4ivy3"]
+points = PackedVector2Array(-37, 33, 42, 25, 51, -4, 29, -29, -47, -25, -51, 8)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kecd5"]
-radius = 16.0
+radius = 22.0
 
 [node name="PlayerSpaceship" type="RigidBody2D"]
 script = ExtResource("1_uu7e4")
@@ -33,7 +33,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_dj30g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_erg1n")
+shape = SubResource("ConvexPolygonShape2D_4ivy3")
 
 [node name="StarBig" type="Sprite2D" parent="."]
 position = Vector2(-47, -4)
