@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpbrahtyswmde"]
+
+[ext_resource type="Texture2D" uid="uid://bgbddn6i56oto" path="res://assets/art/Start Game/Planetship.png" id="1_ioskq"]
+
+[node name="Intro" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Planetship" type="Sprite2D" parent="."]
+position = Vector2(1476, 591)
+scale = Vector2(2.264463, 2.2644627)
+texture = ExtResource("1_ioskq")
+
+[node name="Label2" type="RichTextLabel" parent="."]
+offset_left = 94.0
+offset_top = 239.0
+offset_right = 1026.0
+offset_bottom = 980.0
+bbcode_enabled = true
+text = "Our [b]PLANETSHIP[/b] - is a massive floating Megacity that contains all Humanity, after your [color=red]Cosmic EX had[/color] destroyed a planet. One Engine could take a whole District and operate with 500,000 people.
+It moves chaotically, with massive inertia. Because so many people are involved. Everything breaks constantly.
+
+Your mission: [color=green][wave]SURVIVE[/wave][/color]"
+
+[node name="Label" type="RichTextLabel" parent="."]
+offset_left = 97.0
+offset_top = 87.0
+offset_right = 1029.0
+offset_bottom = 190.0
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+bbcode_enabled = true
+text = "[b]In a universe far far away...[/b]"
