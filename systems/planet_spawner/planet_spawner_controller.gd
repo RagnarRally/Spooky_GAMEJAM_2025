@@ -2,7 +2,7 @@ extends Node2D
 class_name PlanetSpawnerController
 
 @export var planet_packed: PackedScene
-@export var player: EPlayerSpaceship
+@export var player: RigidBody2D
 
 @export var spawn_range: float = 1000
 @export var spawn_interval: Vector2 = Vector2(1,2)

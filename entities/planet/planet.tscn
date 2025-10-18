@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ckrpxipsrp27m"]
 
-[ext_resource type="Script" uid="uid://d3kn02m7watx" path="res://scenes/test/planet.gd" id="1_fhyl1"]
+[ext_resource type="Script" uid="uid://d3kn02m7watx" path="res://entities/planet/planet.gd" id="1_fhyl1"]
 [ext_resource type="Texture2D" uid="uid://bfqhhw1rjjv0e" path="res://icon.svg" id="2_0pdj7"]
 [ext_resource type="Script" uid="uid://cq300ud1f7bro" path="res://scenes/test/planet_properties_res.gd" id="2_7hoq1"]
 

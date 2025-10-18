@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1gpmg3iulicg"]
+
+[ext_resource type="PackedScene" uid="uid://dkvu8ncimgpxm" path="res://entities/player_spaceship/player_spaceship.tscn" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://cbmtggq0spdp4" path="res://assets/art/Star_small.png" id="2_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://6wo182se5ki" path="res://systems/planet_spawner/planet_spawner_controller.tscn" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://ckrpxipsrp27m" path="res://entities/planet/planet.tscn" id="3_lbhrr"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iywne"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 1000, 1)
+gravity = Vector3(0, 0, 0)
+
+[node name="Game" type="Node2D"]
+
+[node name="PlayerSpaceship" parent="." instance=ExtResource("1_uwrxv")]
+position = Vector2(548, 329)
+
+[node name="Camera2D" type="Camera2D" parent="PlayerSpaceship"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="PlayerSpaceship"]
+position = Vector2(8, 2)
+amount = 100
+texture = ExtResource("2_lbhrr")
+lifetime = 20.0
+preprocess = 20.0
+process_material = SubResource("ParticleProcessMaterial_iywne")
+
+[node name="PlanetSpawnerController" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_lnu2h")]
+planet_packed = ExtResource("3_lbhrr")
+player = NodePath("../PlayerSpaceship")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07683582, 0.07683582, 0.07683582, 1)
+metadata/_edit_use_anchors_ = true

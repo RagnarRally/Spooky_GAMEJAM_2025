@@ -16,3 +16,4 @@ func setup(new_properties: PlanetProperties):
 
 	_graphics_root.scale = Vector2.ONE * new_properties.size / 10
 	collision_shape.shape.radius = new_properties.size
+	
