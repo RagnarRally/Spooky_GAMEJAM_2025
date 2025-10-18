@@ -42,6 +42,45 @@ initial_velocity_max = 123.77
 scale_curve = SubResource("CurveTexture_344kx")
 color_ramp = SubResource("GradientTexture1D_1uo7p")
 
+[sub_resource type="Animation" id="Animation_gq23p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShineEffect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_agge8"]
 resource_name = "explode"
 length = 0.5
@@ -82,57 +121,19 @@ tracks/2/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_gq23p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Graphics:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ShineEffect:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("GPUParticles2D:emitting")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1uo7p"]
 _data = {
 &"RESET": SubResource("Animation_gq23p"),
 &"explode": SubResource("Animation_agge8")
 }
 
-[node name="Planet" type="Node2D" node_paths=PackedStringArray("_graphics_root", "collision_shape", "explosion_particles")]
+[node name="Planet" type="Node2D" node_paths=PackedStringArray("_graphics_root", "collision_shape", "explosion_particles", "anim_player")]
 script = ExtResource("1_fhyl1")
 properties = SubResource("Resource_laq2e")
 _graphics_root = NodePath("Graphics")
 collision_shape = NodePath("Area2D2/CollisionShape2D")
 explosion_particles = NodePath("GPUParticles2D")
+anim_player = NodePath("AnimationPlayer")
 
 [node name="ShineEffect" type="Sprite2D" parent="."]
 texture = ExtResource("3_g43px")
