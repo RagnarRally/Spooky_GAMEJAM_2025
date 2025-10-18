@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://6wo182se5ki" path="res://systems/planet_spawner/planet_spawner_controller.tscn" id="2_lnu2h"]
 [ext_resource type="Script" uid="uid://cnqhqro3npd0c" path="res://systems/audio/configurable_audio_stream_resource.gd" id="3_gee14"]
 [ext_resource type="PackedScene" uid="uid://ckrpxipsrp27m" path="res://entities/planet/planet.tscn" id="3_lbhrr"]
-[ext_resource type="AudioStream" uid="uid://1cgx8bjon55m" path="res://assets/sound/effects/boostburst.mp3" id="4_0tnpc"]
+[ext_resource type="AudioStream" uid="uid://bdp35x2okmilp" path="res://assets/sound/effects/thrust.mp3" id="4_gee14"]
 [ext_resource type="PackedScene" uid="uid://dxtiwq6y4dlho" path="res://entities/cosmic_horror/cosmic_horror.tscn" id="7_u5sy4"]
 
 [sub_resource type="Resource" id="Resource_vtaks"]
 script = ExtResource("3_gee14")
-stream = ExtResource("4_0tnpc")
+stream = ExtResource("4_gee14")
 pitch_range = Vector2(0.9, 1.1)
 audio_bus = &"Sound Effect"
 metadata/_custom_type_script = "uid://cnqhqro3npd0c"
