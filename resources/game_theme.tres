@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://p2ip4m2gafy3"]
+
+[resource]
+default_font_size = 48
+GameMenuTitle/base_type = &"Label"
+GameMenuTitle/font_sizes/font_size = 96

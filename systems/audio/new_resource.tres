@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ConfigurableAudioStreamResource" load_steps=2 format=3 uid="uid://ci0oyvqmoswvm"]
+
+[ext_resource type="Script" path="res://components/audio/configurable_audio_stream_resource.gd" id="1_bjcn8"]
+
+[resource]
+script = ExtResource("1_bjcn8")
+volume = 1.0
+pitch_range = Vector2(1, 1)
