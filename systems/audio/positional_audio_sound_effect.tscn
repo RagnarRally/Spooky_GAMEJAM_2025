@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://curhbo71k36rx"]
+
+[ext_resource type="Script" uid="uid://y6hkg0sqkijl" path="res://systems/audio/positional_audio_sound_effect.gd" id="1_bxydc"]
+
+[node name="PositionalAudioSoundEffect" type="AudioStreamPlayer2D"]
+script = ExtResource("1_bxydc")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

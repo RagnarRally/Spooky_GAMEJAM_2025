@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dam42x4ui1u3d"]
+
+[ext_resource type="Script" uid="uid://gyyreh8xtbwc" path="res://systems/audio/audio_manager.gd" id="1_v5tvu"]
+[ext_resource type="PackedScene" uid="uid://curhbo71k36rx" path="res://systems/audio/positional_audio_sound_effect.tscn" id="2_sfum2"]
+
+[node name="AudioManager" type="Node2D" node_paths=PackedStringArray("music_audio_player", "sound_effect_template_scene")]
+script = ExtResource("1_v5tvu")
+music_audio_player = NodePath("MusicAudioStreamPlayer")
+sound_effect_template_scene = NodePath("PositionalAudioSoundEffect")
+sound_effect_scene = ExtResource("2_sfum2")
+
+[node name="PositionalAudioSoundEffect" parent="." instance=ExtResource("2_sfum2")]
+
+[node name="MusicAudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckrpxipsrp27m"]
+[gd_scene load_steps=7 format=3 uid="uid://ckrpxipsrp27m"]
 
 [ext_resource type="Script" uid="uid://d3kn02m7watx" path="res://entities/planet/planet.gd" id="1_fhyl1"]
 [ext_resource type="Texture2D" uid="uid://bfqhhw1rjjv0e" path="res://icon.svg" id="2_0pdj7"]
-[ext_resource type="Script" uid="uid://cq300ud1f7bro" path="res://scenes/test/planet_properties_res.gd" id="2_7hoq1"]
+[ext_resource type="Script" uid="uid://cq300ud1f7bro" path="res://entities/planet/planet_properties_res.gd" id="2_7hoq1"]
 
 [sub_resource type="Resource" id="Resource_laq2e"]
 script = ExtResource("2_7hoq1")
@@ -11,6 +11,9 @@ metadata/_custom_type_script = "uid://cq300ud1f7bro"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0pdj7"]
 resource_local_to_scene = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_itihs"]
+radius = 256.0
 
 [node name="Planet" type="Node2D" node_paths=PackedStringArray("_graphics_root", "collision_shape")]
 script = ExtResource("1_fhyl1")
@@ -32,3 +35,9 @@ shape = SubResource("CircleShape2D_0pdj7")
 [node name="Area2D" type="Area2D" parent="."]
 gravity_space_override = 1
 gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_itihs")
+debug_color = Color(0.043137256, 0.62352943, 0.5294118, 0.16862746)
