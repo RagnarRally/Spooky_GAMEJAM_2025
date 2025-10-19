@@ -14,7 +14,7 @@ func _ready() -> void:
 	buttonLoving.button_up.connect(_option_pressed.bind("Loving"))
 	$CanvasLayer/TimeText.text = "TIME\n%.02f" % Globals.timeTotal
 	var tween = create_tween()
-	tween.tween_property($CanvasLayer/HBoxContainer, "modulate", Color.WHITE, 3.0)
+	tween.tween_property($CanvasLayer/VBoxContainer2, "modulate", Color.WHITE, 3.0)
 	tween.tween_property($CanvasLayer/AnswerHer, "modulate", Color.WHITE, 1.5)
 
 
