@@ -32,14 +32,14 @@ func _process(delta: float) -> void:
 
 	if _current_spawn_time <= 0:
 		var did_spawn_planet = spawn_planet()
-		print("Spawned planet: " + str(did_spawn_planet))
+		#print("Spawned planet: " + str(did_spawn_planet))
 		_current_spawn_time = randf_range(spawn_interval.x, spawn_interval.y)
 		
 	_current_spawn_time_resource -= delta
 
 	if _current_spawn_time_resource <= 0:
 		var did_spawn_planet = spawn_resource()
-		print("Spawned planet: " + str(did_spawn_planet))
+		#print("Spawned planet: " + str(did_spawn_planet))
 		_current_spawn_time_resource = randf_range(spawn_interval_resource.x, spawn_interval_resource.y)
 
 	queue_redraw()
