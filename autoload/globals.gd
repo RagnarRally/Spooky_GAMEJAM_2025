@@ -1,5 +1,10 @@
 extends Node
 
+signal player_entered_corrupted_planet(corrupted_planet)
+signal player_exited_corrupted_planet(corrupted_planet)
+
+signal player_damaged()
+
 const MAX_HP = 3
 var healthPoints = MAX_HP
 
@@ -9,6 +14,14 @@ const HEART_EMPTY = preload("res://assets/art/Objects/Heart_Empty.png")
 func Game_Over():
 	SceneSwitcher.change_scene_to("game_over") 
 	healthPoints = MAX_HP
+
+func damage_player(amount):
+	healthPoints -= amount
+	player_damaged.emit()
+
+	if healthPoints <= 0:
+		Game_Over()
+
 
 ## Called when the node enters the scene tree for the first time.
 #func _ready() -> void:

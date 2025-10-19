@@ -197,3 +197,5 @@ material = SubResource("ShaderMaterial_vgmyl")
 texture = ExtResource("6_4ootd")
 
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_entered" from="CorruptArea2D" to="." method="_on_corrupt_area_2d_body_entered"]
+[connection signal="body_exited" from="CorruptArea2D" to="." method="_on_corrupt_area_2d_body_exited"]

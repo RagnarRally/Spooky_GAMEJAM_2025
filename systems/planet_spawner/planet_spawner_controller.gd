@@ -172,7 +172,7 @@ func spawn_planets():
 
 		var angle = (float(i) / planets_to_spawn) * 2 * PI
 		var dist = randf_range(100, 300)
-		var size = randf_range(10, 32)
+		var size = randf_range(10, 64)
 
 		var properties = PlanetProperties.new()
 		properties.size = size

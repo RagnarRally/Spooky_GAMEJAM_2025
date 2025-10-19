@@ -29,10 +29,11 @@ emission_shape = 3
 emission_box_extents = Vector3(1000, 1000, 1)
 gravity = Vector3(0, 0, 0)
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("player_spaceship", "camera")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("player_spaceship", "camera", "health_container")]
 script = ExtResource("1_iywne")
 player_spaceship = NodePath("PlayerSpaceship")
 camera = NodePath("PlayerSpaceship/Camera2D")
+health_container = NodePath("CanvasLayer/HBoxContainer")
 
 [node name="PlayerSpaceship" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(548, 329)
