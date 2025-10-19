@@ -9,4 +9,4 @@ func _ready() -> void:
 	play_button.button_up.connect(_on_play_game)
 
 func _on_play_game():
-	SceneSwitcher.change_scene_to("game")
+	SceneSwitcher.change_scene_to("intro")

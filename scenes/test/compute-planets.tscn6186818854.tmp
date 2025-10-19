@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://brx8e76eagxpj"]
+
+[ext_resource type="Script" uid="uid://b2bcalv7mnvx6" path="res://scenes/test/galaxy.gd" id="1_4gwux"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="galaxy" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_4gwux")
