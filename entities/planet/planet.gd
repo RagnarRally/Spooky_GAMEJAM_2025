@@ -17,6 +17,8 @@ func _ready() -> void:
 	if properties:
 		setup(properties)
 
+	anim_player.play("create")
+
 func setup(new_properties: PlanetProperties):
 
 	_graphics_root.scale = Vector2.ONE * new_properties.size / 10
