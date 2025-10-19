@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 func _option_pressed(option: String):
 	
 	if option == "Angry":
-		$CanvasLayer/HBoxContainer/Angry.text = "Your dead!"
+		$CanvasLayer/HBoxContainer/Angry.text = "You are dead!"
 		#get_tree().quit()
 	if option == "Blaming":
 		$CanvasLayer/HBoxContainer/Blaming.text = "I hate you!"
