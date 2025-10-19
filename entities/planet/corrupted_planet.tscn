@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cylxwcy180yiu" path="res://entities/planet/corrupted_planet.gd" id="1_md1qs"]
 [ext_resource type="Texture2D" uid="uid://cwklse3j3g0o3" path="res://assets/art/Start Game/Shine_Effect.png" id="3_4ootd"]
-[ext_resource type="Texture2D" uid="uid://5t1tybrotauu" path="res://assets/art/Start Game/Planet_1.png" id="4_vgmyl"]
+[ext_resource type="Texture2D" uid="uid://rq22r3fkpa20" path="res://assets/art/Objects/Black_Hole.png" id="3_wkmf5"]
 [ext_resource type="Texture2D" uid="uid://bgbic7qliga1d" path="res://assets/art/Objects/Asteroid_Small.png" id="5_axe2j"]
 [ext_resource type="Shader" uid="uid://oh13uo0borwt" path="res://entities/planet/corrupted_planet.gdshader" id="5_wkmf5"]
 [ext_resource type="Texture2D" uid="uid://bv8jvn71dpd2n" path="res://assets/art/drag_hint/Hint_Dot.png" id="6_4ootd"]
@@ -148,8 +148,8 @@ texture = ExtResource("3_4ootd")
 [node name="Graphics" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Graphics"]
-scale = Vector2(0.01, 0.01)
-texture = ExtResource("4_vgmyl")
+scale = Vector2(0.093, 0.093)
+texture = ExtResource("3_wkmf5")
 
 [node name="Area2D2" type="Area2D" parent="."]
 

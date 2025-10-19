@@ -39,6 +39,7 @@ damage_indicator = NodePath("CanvasLayer/damage indicator")
 
 [node name="PlayerSpaceship" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(548, 329)
+linear_velocity = Vector2(500, 0)
 engine_power = 300
 spin_power = 1000
 boost_sound = SubResource("Resource_vtaks")
