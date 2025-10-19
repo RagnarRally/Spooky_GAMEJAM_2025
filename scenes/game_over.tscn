@@ -35,7 +35,7 @@ content_margin_top = 48.0
 texture = ExtResource("5_irg28")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2jtsn"]
-content_margin_right = 48.0
+content_margin_top = 48.0
 texture = ExtResource("5_irg28")
 modulate_color = Color(0.4045111, 0.40451115, 0.4045111, 1)
 
