@@ -13,7 +13,7 @@ config_version=5
 config/name="Spooky_GAME_JAM_2025"
 run/main_scene="uid://ckvdv57iaonab"
 config/features=PackedStringArray("4.5", "Forward Plus")
-boot_splash/image="uid://fxr25pi4ivsg"
+boot_splash/image="uid://dmnirgnmxyn4y"
 config/icon="uid://bgbddn6i56oto"
 config/windows_native_icon="res://Planetship.ico"
 

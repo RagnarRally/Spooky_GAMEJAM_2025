@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://11su1hgoi3ii" path="res://scenes/game_over.gd" id="1_wqhvx"]
 [ext_resource type="Texture2D" uid="uid://hxicw51sr3rp" path="res://assets/art/temp/IMG_0249.jpg" id="1_xeevv"]
-[ext_resource type="Texture2D" uid="uid://fxr25pi4ivsg" path="res://assets/art/temp/IMG_0249.png" id="3_tbwuq"]
+[ext_resource type="Texture2D" uid="uid://dmnirgnmxyn4y" path="res://assets/art/cosmic_horror/girlie.png" id="3_tbwuq"]
 
 [node name="GameOver" type="Node2D" node_paths=PackedStringArray("left_option_button", "right_option_button")]
 script = ExtResource("1_wqhvx")
