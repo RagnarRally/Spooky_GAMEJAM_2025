@@ -84,10 +84,10 @@ texture = ExtResource("8_8bugq")
 
 [node name="GameOver" type="Node2D" node_paths=PackedStringArray("buttonAngry", "buttonBlaming", "buttonEmpathy", "buttonLoving")]
 script = ExtResource("1_wqhvx")
-buttonAngry = NodePath("CanvasLayer/Answers/HBoxContainer/Angry")
-buttonBlaming = NodePath("CanvasLayer/Answers/HBoxContainer/Blaming")
-buttonEmpathy = NodePath("CanvasLayer/Answers/HBoxContainer/Empathic")
-buttonLoving = NodePath("CanvasLayer/Answers/HBoxContainer/Loving")
+buttonAngry = NodePath("CanvasLayer/HBoxContainer/Angry")
+buttonBlaming = NodePath("CanvasLayer/HBoxContainer/Blaming")
+buttonEmpathy = NodePath("CanvasLayer/HBoxContainer/Empathic")
+buttonLoving = NodePath("CanvasLayer/HBoxContainer/Loving")
 
 [node name="Img0249" type="Sprite2D" parent="."]
 visible = false
@@ -107,17 +107,8 @@ texture = ExtResource("3_tbwuq")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Answers" type="Control" parent="CanvasLayer"]
+[node name="AnswerHer" type="TextureRect" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="AnswerHer" type="TextureRect" parent="CanvasLayer/Answers"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -131,8 +122,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_2jtsn")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Answers"]
-layout_mode = 1
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -141,7 +132,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 
-[node name="Angry" type="Button" parent="CanvasLayer/Answers/HBoxContainer"]
+[node name="Angry" type="Button" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_racf3")
@@ -152,7 +143,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_v3hpu")
 text = "Listen. It's over between us now. You could kill us now"
 autowrap_mode = 3
 
-[node name="Blaming" type="Button" parent="CanvasLayer/Answers/HBoxContainer"]
+[node name="Blaming" type="Button" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_7m3ot")
@@ -163,7 +154,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_wawo4")
 text = "I'm in this PLANETSHIP with six billion people who hate me because of you."
 autowrap_mode = 2
 
-[node name="Empathic" type="Button" parent="CanvasLayer/Answers/HBoxContainer"]
+[node name="Empathic" type="Button" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_2jtsn")
@@ -174,7 +165,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_o57t2")
 text = "I understand why you are mad at me but why did you destroy a planet?"
 autowrap_mode = 2
 
-[node name="Loving" type="Button" parent="CanvasLayer/Answers/HBoxContainer"]
+[node name="Loving" type="Button" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_8bugq")
