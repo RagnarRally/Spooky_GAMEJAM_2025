@@ -36,5 +36,6 @@ func _option_pressed(option: String):
 		$CanvasLayer/DemonicVoice.text = "Death to the galaxy!"
 	if option == "Loving":
 		$CanvasLayer/DemonicVoice.text = "I will kill you pervert!"
+	$CanvasLayer/DemonicVoice.add_theme_color_override("font_color", Color.BLACK)
 	await get_tree().create_timer(3.0).timeout
 	SceneSwitcher.change_scene_to("game")
