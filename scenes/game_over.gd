@@ -1,16 +1,16 @@
 extends Node2D
 
-@export var button1: Button
-@export var button2: Button
-@export var button3: Button
-@export var button4: Button
+@export var buttonAngry: Button
+@export var buttonBlaming: Button
+@export var buttonEmpathy: Button
+@export var buttonLoving: Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	button1.button_up.connect(_option_pressed.bind("1"))
-	button2.button_up.connect(_option_pressed.bind("2"))
-	button3.button_up.connect(_option_pressed.bind("3"))
-	button4.button_up.connect(_option_pressed.bind("4"))
+	buttonAngry.button_up.connect(_option_pressed.bind("Angry"))
+	buttonBlaming.button_up.connect(_option_pressed.bind("Blaming"))
+	buttonEmpathy.button_up.connect(_option_pressed.bind("Empathy"))
+	buttonLoving.button_up.connect(_option_pressed.bind("Loving"))
 	$CanvasLayer/Label.text = "TIME\n%.02f" % Globals.timeTotal
 
 
@@ -20,13 +20,13 @@ func _process(delta: float) -> void:
 
 func _option_pressed(option: String):
 	
-	if option == "1":
+	if option == "Angry":
 		pass
-	if option == "2":
+	if option == "Blaming":
 		pass
-	if option == "3":
+	if option == "Empathy":
 		pass
-	if option == "4":
+	if option == "Loving":
 		pass
 	
 	SceneSwitcher.change_scene_to("game")

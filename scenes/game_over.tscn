@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d2uxgumk0t4gt"]
+[gd_scene load_steps=27 format=3 uid="uid://d2uxgumk0t4gt"]
 
 [ext_resource type="Script" uid="uid://11su1hgoi3ii" path="res://scenes/game_over.gd" id="1_wqhvx"]
 [ext_resource type="Texture2D" uid="uid://hxicw51sr3rp" path="res://assets/art/temp/IMG_0249.jpg" id="1_xeevv"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://d06kc3v4jdh3x" path="res://assets/art/Answers/Answer_Blaming.png" id="5_irg28"]
 [ext_resource type="Texture2D" uid="uid://bjbv1tw1yjteb" path="res://assets/art/Answers/Answer_Empathy.png" id="6_2jtsn"]
 [ext_resource type="Texture2D" uid="uid://bl4xlvsc6c8aj" path="res://assets/art/Answers/Answer_Loving.png" id="7_8bugq"]
+[ext_resource type="Texture2D" uid="uid://f042ra00rrom" path="res://assets/art/Answers/Answer HER.png" id="8_2jtsn"]
+[ext_resource type="Texture2D" uid="uid://6xwaih7t34bn" path="res://assets/art/Answers/HER_DEMONIC_VOICE.png" id="8_8bugq"]
 
 [sub_resource type="Theme" id="Theme_racf3"]
 
@@ -60,12 +62,15 @@ modulate_color = Color(0.4045111, 0.40451115, 0.4045111, 1)
 texture = ExtResource("7_8bugq")
 modulate_color = Color(0.5649617, 0.5649616, 0.5649616, 1)
 
-[node name="GameOver" type="Node2D" node_paths=PackedStringArray("button1", "button2", "button3", "button4")]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r8nfu"]
+texture = ExtResource("8_8bugq")
+
+[node name="GameOver" type="Node2D" node_paths=PackedStringArray("buttonAngry", "buttonBlaming", "buttonEmpathy", "buttonLoving")]
 script = ExtResource("1_wqhvx")
-button1 = NodePath("CanvasLayer/VBoxContainer/HBoxContainer/Button")
-button2 = NodePath("CanvasLayer/VBoxContainer/HBoxContainer/Button2")
-button3 = NodePath("CanvasLayer/VBoxContainer/HBoxContainer/Button3")
-button4 = NodePath("CanvasLayer/VBoxContainer/HBoxContainer/Button4")
+buttonAngry = NodePath("CanvasLayer/VBoxContainer/HBoxContainer/Angry")
+buttonBlaming = NodePath("CanvasLayer/VBoxContainer/HBoxContainer/Blaming")
+buttonEmpathy = NodePath("CanvasLayer/VBoxContainer/HBoxContainer/Empathic")
+buttonLoving = NodePath("CanvasLayer/VBoxContainer/HBoxContainer/Loving")
 
 [node name="Img0249" type="Sprite2D" parent="."]
 visible = false
@@ -94,6 +99,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 96
 bbcode_enabled = true
@@ -109,7 +115,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+[node name="Angry" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_racf3")
@@ -120,7 +126,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_v3hpu")
 text = "Listen. It's over between us now. You could kill us now"
 autowrap_mode = 3
 
-[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+[node name="Blaming" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_7m3ot")
@@ -131,7 +137,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_wawo4")
 text = "I'm in this PLANETSHIP with six billion people who hate me because of you."
 autowrap_mode = 2
 
-[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+[node name="Empathic" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_2jtsn")
@@ -142,7 +148,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_o57t2")
 text = "I understand why you are mad at me but why did you destroy a planet?"
 autowrap_mode = 2
 
-[node name="Button4" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+[node name="Loving" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_8bugq")
@@ -153,9 +159,41 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_s4bmq")
 text = "Wow... You look so beautiful in red... in your Space Goddess form."
 autowrap_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Text" type="Label" parent="CanvasLayer"]
 offset_right = 206.0
 offset_bottom = 67.0
 text = "TIME
 0.0"
 horizontal_alignment = 1
+
+[node name="DemonicVoice" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -686.0
+offset_top = -34.0
+offset_right = -123.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_r8nfu")
+text = "Finally, still trying to avoid me after everything..."
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AnswerHer" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.89282
+offset_top = 99.0
+offset_right = 257.89282
+offset_bottom = 215.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_2jtsn")
