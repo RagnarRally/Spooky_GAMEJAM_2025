@@ -9,12 +9,7 @@ class_name Planet
 @export var explosion_particles: GPUParticles2D
 @export var anim_player: AnimationPlayer
 
-@export var corrupted_area: Area2D
-
-
 var _properties: PlanetProperties
-
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,13 +24,6 @@ func setup(new_properties: PlanetProperties):
 
 	_properties = new_properties
 
-	corrupted_area.monitoring = _properties.type == PlanetProperties.PlanetType.CORRUPTED
-	corrupted_area.visible = _properties.type == PlanetProperties.PlanetType.CORRUPTED
-
-func _process(delta: float) -> void:
-
-	if _properties.type == PlanetProperties.PlanetType.CORRUPTED:
-		pass
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	Globals.healthPoints -= 1

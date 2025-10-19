@@ -1,15 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://ckrpxipsrp27m"]
+[gd_scene load_steps=19 format=3 uid="uid://bhnjrdgdwcht8"]
 
-[ext_resource type="Script" uid="uid://d3kn02m7watx" path="res://entities/planet/planet.gd" id="1_fhyl1"]
-[ext_resource type="Script" uid="uid://cq300ud1f7bro" path="res://entities/planet/planet_properties_res.gd" id="2_7hoq1"]
-[ext_resource type="Texture2D" uid="uid://cwklse3j3g0o3" path="res://assets/art/Start Game/Shine_Effect.png" id="3_g43px"]
-[ext_resource type="Texture2D" uid="uid://5t1tybrotauu" path="res://assets/art/Start Game/Planet_1.png" id="3_itihs"]
-[ext_resource type="Texture2D" uid="uid://bgbic7qliga1d" path="res://assets/art/Objects/Asteroid_Small.png" id="5_agge8"]
-
-[sub_resource type="Resource" id="Resource_laq2e"]
-script = ExtResource("2_7hoq1")
-size = 100
-metadata/_custom_type_script = "uid://cq300ud1f7bro"
+[ext_resource type="Script" uid="uid://cylxwcy180yiu" path="res://entities/planet/corrupted_planet.gd" id="1_md1qs"]
+[ext_resource type="Texture2D" uid="uid://cwklse3j3g0o3" path="res://assets/art/Start Game/Shine_Effect.png" id="3_4ootd"]
+[ext_resource type="Texture2D" uid="uid://5t1tybrotauu" path="res://assets/art/Start Game/Planet_1.png" id="4_vgmyl"]
+[ext_resource type="Texture2D" uid="uid://bgbic7qliga1d" path="res://assets/art/Objects/Asteroid_Small.png" id="5_axe2j"]
+[ext_resource type="Shader" uid="uid://oh13uo0borwt" path="res://entities/planet/corrupted_planet.gdshader" id="5_wkmf5"]
+[ext_resource type="Texture2D" uid="uid://bv8jvn71dpd2n" path="res://assets/art/drag_hint/Hint_Dot.png" id="6_4ootd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0pdj7"]
 resource_local_to_scene = true
@@ -127,22 +123,33 @@ _data = {
 &"explode": SubResource("Animation_agge8")
 }
 
-[node name="Planet" type="Node2D" node_paths=PackedStringArray("_graphics_root", "collision_shape", "explosion_particles", "anim_player")]
-script = ExtResource("1_fhyl1")
-properties = SubResource("Resource_laq2e")
+[sub_resource type="CircleShape2D" id="CircleShape2D_agge8"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vgmyl"]
+resource_local_to_scene = true
+shader = ExtResource("5_wkmf5")
+shader_parameter/amt = 1.0
+shader_parameter/color = Color(0.77707314, 0, 0.23160964, 0.21960784)
+
+[node name="CorruptedPlanet" type="Node2D" node_paths=PackedStringArray("_graphics_root", "collision_shape", "explosion_particles", "anim_player", "corrupted_area", "corrupted_area_shape", "corruption_sprite")]
+script = ExtResource("1_md1qs")
 _graphics_root = NodePath("Graphics")
 collision_shape = NodePath("Area2D2/CollisionShape2D")
 explosion_particles = NodePath("GPUParticles2D")
 anim_player = NodePath("AnimationPlayer")
+corrupted_area = NodePath("CorruptArea2D")
+corrupted_area_shape = NodePath("CorruptArea2D/CollisionShape2D")
+corruption_sprite = NodePath("Sprite2D")
 
 [node name="ShineEffect" type="Sprite2D" parent="."]
-texture = ExtResource("3_g43px")
+texture = ExtResource("3_4ootd")
 
 [node name="Graphics" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Graphics"]
 scale = Vector2(0.01, 0.01)
-texture = ExtResource("3_itihs")
+texture = ExtResource("4_vgmyl")
 
 [node name="Area2D2" type="Area2D" parent="."]
 
@@ -165,7 +172,7 @@ debug_color = Color(0.043137256, 0.62352943, 0.5294118, 0.16862746)
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 50
-texture = ExtResource("5_agge8")
+texture = ExtResource("5_axe2j")
 lifetime = 0.6
 one_shot = true
 explosiveness = 0.64
@@ -175,5 +182,18 @@ process_material = SubResource("ParticleProcessMaterial_hxvkj")
 libraries = {
 &"": SubResource("AnimationLibrary_1uo7p")
 }
+
+[node name="CorruptArea2D" type="Area2D" parent="."]
+linear_damp_space_override = 1
+linear_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CorruptArea2D"]
+visible = false
+shape = SubResource("CircleShape2D_agge8")
+debug_color = Color(1, 0, 0.11764706, 0.23921569)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_vgmyl")
+texture = ExtResource("6_4ootd")
 
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

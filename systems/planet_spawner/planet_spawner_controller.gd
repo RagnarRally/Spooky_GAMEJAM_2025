@@ -2,6 +2,7 @@ extends Node2D
 class_name PlanetSpawnerController
 
 @export var planet_packed: PackedScene
+@export var corrupted_planet_packed: PackedScene
 @export var resource_packed: PackedScene
 @export var player: RigidBody2D
 
@@ -12,7 +13,7 @@ class_name PlanetSpawnerController
 @export var min_distance_between_planets: float = 400
 @export var min_distance_between_planetsandresources: float = 200
 
-var _spawned_planets: Array[Planet]
+var _spawned_planets: Array
 var _spawned_resources = []
 
 var _current_spawn_time: float = 0
@@ -108,7 +109,11 @@ func spawn_planet():
 	properties.size = size
 	properties.type = PlanetProperties.PlanetType.CORRUPTED if is_corrupted else PlanetProperties.PlanetType.NORMAL
 
-	var planet_instance = planet_packed.instantiate() as Planet
+	var planet_instance
+	if is_corrupted:
+		planet_instance = corrupted_planet_packed.instantiate() as CorruptedPlanet
+	else:
+		planet_instance = planet_packed.instantiate() as Planet
 	add_child(planet_instance)
 	planet_instance.global_position = desired_position
 	planet_instance.setup(properties)
