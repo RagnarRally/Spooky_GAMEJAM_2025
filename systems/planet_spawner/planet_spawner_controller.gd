@@ -119,7 +119,7 @@ func spawn_planet():
 	for i in range(3): # make three attempts
 		var angle_rad = randf_range(player_direction_angle-deg_to_rad(spawn_spread_deg), player_direction_angle+deg_to_rad(spawn_spread_deg)) 
 		dist = randf_range(spawn_range, spawn_range + 500) #randf_range(100, 300)
-		size = randf_range(10, 32)
+		size = randf_range(16, 64)
 		is_corrupted = randf() > 0.5
 
 		desired_position = player.global_position + Vector2.RIGHT.rotated(angle_rad) * dist

@@ -117,7 +117,7 @@ texture = ExtResource("9_vtaks")
 
 [node name="CosmicHorror" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_u5sy4")]
 z_index = -1
-position = Vector2(-16, 545)
+position = Vector2(-1886, 545)
 target = NodePath("../PlayerSpaceship")
 chase_speed = 500.0
 chase_time_range = Vector2(1, 3)
