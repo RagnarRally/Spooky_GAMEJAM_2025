@@ -26,9 +26,8 @@ _data = {
 &"RESET": SubResource("Animation_7ja24")
 }
 
-[node name="CosmicHorror" type="Node2D" node_paths=PackedStringArray("screen_audio_player")]
+[node name="CosmicHorror" type="Node2D"]
 script = ExtResource("1_ycul8")
-screen_audio_player = NodePath("")
 
 [node name="CosmicHorrorRemovebgPreview" type="Sprite2D" parent="."]
 position = Vector2(-5, -92)

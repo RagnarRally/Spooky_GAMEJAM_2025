@@ -38,21 +38,24 @@ func _process(delta: float) -> void:
 	
 	if len(_current_corrupted_planets_within_range_of_player) > 0:
 		_current_corruption_time += delta
-
-		target_damage_indicator_alpha_corruption = _current_corruption_time / corruption_time_limit
+		target_damage_indicator_alpha_corruption = clampf(_current_corruption_time / corruption_time_limit, 0, 1)
 	else:
 		target_damage_indicator_alpha_corruption = 0
+		_current_corruption_time = 0
+
 	
 	var d = cosmic_horror_entity.global_position.distance_to(player_spaceship.global_position)
 	if d < 300:
 		target_damage_indicator_alpha_cosmic_horror = (300 - d)/300
 	else:
-		damage_indicator.modulate.a = 0
+		target_damage_indicator_alpha_cosmic_horror = 0
+
+		#damage_indicator.modulate.a = 0
 
 	var a = max(target_damage_indicator_alpha_corruption, target_damage_indicator_alpha_cosmic_horror)
 
 	if a > 0:
-		damage_indicator.modulate.a = lerpf(damage_indicator.modulate.a, a, 10*delta)
+		damage_indicator.modulate.a = lerpf(damage_indicator.modulate.a, a, 100*delta)
 	else:
 		damage_indicator.modulate.a = lerpf(damage_indicator.modulate.a, 0, 10*delta)
 
