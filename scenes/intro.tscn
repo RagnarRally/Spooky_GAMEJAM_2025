@@ -29,10 +29,11 @@ offset_top = 239.0
 offset_right = 1026.0
 offset_bottom = 980.0
 bbcode_enabled = true
-text = "Our [b]PLANETSHIP[/b] - is a massive floating megacity that contains all humanity, after your [color=red]Cosmic EX had[/color] destroyed a planet. One engine could take a whole district and operate with 500,000 people.
-It moves chaotically, with massive inertia. Everything breaks constantly because so many people are involved.
+text = "Your EX turned out to be a Cosmic Horror Entity that destroyed Earth.
 
-Your mission: [color=green][wave]SURVIVE[/wave][/color]"
+You slingshot travel through the cold Endless Space on your PLANETSHIP - a vessel of 6 BLN humans that hates you.
+
+Your mission: [color=green][wave]SURVIVE and NEGOTIATE[/wave][/color]  with her"
 
 [node name="Label" type="RichTextLabel" parent="."]
 offset_left = 97.0

@@ -36,5 +36,5 @@ func _option_pressed(option: String):
 		$CanvasLayer/DemonicVoice.text = "Death to the galaxy!"
 	if option == "Loving":
 		$CanvasLayer/DemonicVoice.text = "I will kill you pervert!"
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(1.5).timeout
 	SceneSwitcher.change_scene_to("game")
