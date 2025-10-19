@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d2uxgumk0t4gt"]
+[gd_scene load_steps=28 format=3 uid="uid://d2uxgumk0t4gt"]
 
 [ext_resource type="Script" uid="uid://11su1hgoi3ii" path="res://scenes/game_over.gd" id="1_wqhvx"]
 [ext_resource type="Texture2D" uid="uid://hxicw51sr3rp" path="res://assets/art/temp/IMG_0249.jpg" id="1_xeevv"]
@@ -25,6 +25,8 @@ modulate_color = Color(0.4045111, 0.40451115, 0.4045111, 1)
 content_margin_top = 48.0
 texture = ExtResource("4_racf3")
 modulate_color = Color(0.5649617, 0.5649616, 0.5649616, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8bugq"]
 
 [sub_resource type="Theme" id="Theme_7m3ot"]
 
@@ -140,6 +142,7 @@ theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxTexture_7m3ot")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_racf3")
 theme_override_styles/hover = SubResource("StyleBoxTexture_v3hpu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8bugq")
 text = "Listen. It's over between us now. You could kill us now"
 autowrap_mode = 3
 
@@ -151,6 +154,7 @@ theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxTexture_irg28")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_2jtsn")
 theme_override_styles/hover = SubResource("StyleBoxTexture_wawo4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8bugq")
 text = "I'm in this PLANETSHIP with six billion people who hate me because of you."
 autowrap_mode = 2
 
@@ -162,6 +166,7 @@ theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxTexture_8bugq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_56v3a")
 theme_override_styles/hover = SubResource("StyleBoxTexture_o57t2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8bugq")
 text = "I understand why you are mad at me but why did you destroy a planet?"
 autowrap_mode = 2
 
@@ -173,6 +178,7 @@ theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxTexture_uq3qu")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_0p6qk")
 theme_override_styles/hover = SubResource("StyleBoxTexture_s4bmq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8bugq")
 text = "Wow... You look so beautiful in red... in your Space Goddess form."
 autowrap_mode = 2
 
