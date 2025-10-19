@@ -35,9 +35,10 @@ _limits = [0.0, 2.0, 0.0, 1000.0]
 _data = [Vector2(0, 0.1845386), 0.0, 0.0, 0, 0, Vector2(591.90027, 0.8167081), 0.0, 0.0, 0, 0, Vector2(1000, 2), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("player_spaceship", "camera", "health_container", "damage_indicator")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("player_spaceship", "cosmic_horror_entity", "camera", "health_container", "damage_indicator")]
 script = ExtResource("1_iywne")
 player_spaceship = NodePath("PlayerSpaceship")
+cosmic_horror_entity = NodePath("CosmicHorror")
 camera = NodePath("PlayerSpaceship/Camera2D")
 health_container = NodePath("CanvasLayer/HBoxContainer")
 damage_indicator = NodePath("CanvasLayer/damage indicator")

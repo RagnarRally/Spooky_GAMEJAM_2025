@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var player_spaceship: PlayerSpacehip
+@export var cosmic_horror_entity: CosmicHorror
 @export var camera: Camera2D
 @export var health_container: HBoxContainer
 @export var damage_indicator: TextureRect
@@ -22,7 +23,7 @@ func _ready() -> void:
 	Globals.player_exited_corrupted_planet.connect(_player_exited_corrupted_planet)
 	Globals.player_damaged.connect(_player_damaged)
 
-	damage_indicator.visible = false
+	damage_indicator.visible = true
 
 	Globals.reset_for_new_run()
 
@@ -31,14 +32,29 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+
+	var target_damage_indicator_alpha_corruption = 0
+	var target_damage_indicator_alpha_cosmic_horror = 0
 	
 	if len(_current_corrupted_planets_within_range_of_player) > 0:
 		_current_corruption_time += delta
-		damage_indicator.visible = true
-		damage_indicator.modulate.a = _current_corruption_time / corruption_time_limit
+
+		target_damage_indicator_alpha_corruption = _current_corruption_time / corruption_time_limit
 	else:
-		damage_indicator.visible = false
+		target_damage_indicator_alpha_corruption = 0
+	
+	var d = cosmic_horror_entity.global_position.distance_to(player_spaceship.global_position)
+	if d < 300:
+		target_damage_indicator_alpha_cosmic_horror = (300 - d)/300
+	else:
 		damage_indicator.modulate.a = 0
+
+	var a = max(target_damage_indicator_alpha_corruption, target_damage_indicator_alpha_cosmic_horror)
+
+	if a > 0:
+		damage_indicator.modulate.a = lerpf(damage_indicator.modulate.a, a, 10*delta)
+	else:
+		damage_indicator.modulate.a = lerpf(damage_indicator.modulate.a, 0, 10*delta)
 
 	if _current_corruption_time >= corruption_time_limit:
 		# TODO: damage the player

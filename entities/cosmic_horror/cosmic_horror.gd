@@ -7,6 +7,8 @@ class_name CosmicHorror
 @export var chase_time_range: Vector2 = Vector2.ONE
 @export var rest_time_range: Vector2 = Vector2.ONE
 
+@export var screen_audio_player: AudioStreamPlayer
+
 @export var speed_curve: Curve
 
 enum {CHASING, RESTING}
@@ -17,6 +19,8 @@ var sm:= CSM.new({
 
 var _current_chase_time = 0
 var _current_rest_time = 0
+
+var _close_to_target: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,9 +47,16 @@ func _chasing_process(delta):
 	else:
 		distance_multplier = speed_curve.sample(distance)
 
+	if not _close_to_target and distance < 300:
+		_close_to_target = true
+		_close_to_target_activity()
+	elif distance > 800:
+		_close_to_target = false
+
+
 	var chase_vector = target_dir * chase_speed * delta * distance_multplier
 
-	print("Cosmic horror: speed=%0.02f" % chase_vector.length())
+	print("Cosmic horror: speed=%0.02f, distance=%0.02f" % [chase_vector.length(), distance])
 	
 	global_translate(chase_vector)
 
@@ -61,3 +72,6 @@ func _resting_process(delta):
 
 	if _current_rest_time <= 0:
 		sm.switch(CHASING)
+
+func _close_to_target_activity():
+	pass
