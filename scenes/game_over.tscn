@@ -13,56 +13,70 @@
 [sub_resource type="Theme" id="Theme_racf3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7m3ot"]
+content_margin_top = 36.0
 texture = ExtResource("4_racf3")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_racf3"]
+content_margin_top = 48.0
 texture = ExtResource("4_racf3")
 modulate_color = Color(0.4045111, 0.40451115, 0.4045111, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v3hpu"]
+content_margin_top = 48.0
 texture = ExtResource("4_racf3")
 modulate_color = Color(0.5649617, 0.5649616, 0.5649616, 1)
 
 [sub_resource type="Theme" id="Theme_7m3ot"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_irg28"]
+content_margin_top = 48.0
 texture = ExtResource("5_irg28")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2jtsn"]
+content_margin_right = 48.0
 texture = ExtResource("5_irg28")
 modulate_color = Color(0.4045111, 0.40451115, 0.4045111, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wawo4"]
+content_margin_top = 48.0
 texture = ExtResource("5_irg28")
 modulate_color = Color(0.5649617, 0.5649616, 0.5649616, 1)
 
 [sub_resource type="Theme" id="Theme_2jtsn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8bugq"]
+content_margin_top = 48.0
 texture = ExtResource("6_2jtsn")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_56v3a"]
+content_margin_top = 48.0
 texture = ExtResource("6_2jtsn")
 modulate_color = Color(0.4045111, 0.40451115, 0.4045111, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o57t2"]
+content_margin_top = 48.0
 texture = ExtResource("6_2jtsn")
 modulate_color = Color(0.5649617, 0.5649616, 0.5649616, 1)
 
 [sub_resource type="Theme" id="Theme_8bugq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uq3qu"]
+content_margin_top = 48.0
 texture = ExtResource("7_8bugq")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0p6qk"]
+content_margin_top = 48.0
 texture = ExtResource("7_8bugq")
 modulate_color = Color(0.4045111, 0.40451115, 0.4045111, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4bmq"]
+content_margin_top = 48.0
 texture = ExtResource("7_8bugq")
 modulate_color = Color(0.5649617, 0.5649616, 0.5649616, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r8nfu"]
+content_margin_left = 8.0
+content_margin_top = 31.0
 texture = ExtResource("8_8bugq")
 
 [node name="GameOver" type="Node2D" node_paths=PackedStringArray("buttonAngry", "buttonBlaming", "buttonEmpathy", "buttonLoving")]
@@ -91,7 +105,6 @@ expand_mode = 2
 stretch_mode = 5
 
 [node name="Answers" type="Control" parent="CanvasLayer"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -128,7 +141,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_racf3")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxTexture_7m3ot")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_racf3")
 theme_override_styles/hover = SubResource("StyleBoxTexture_v3hpu")
@@ -139,7 +152,7 @@ autowrap_mode = 3
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_7m3ot")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxTexture_irg28")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_2jtsn")
 theme_override_styles/hover = SubResource("StyleBoxTexture_wawo4")
@@ -150,7 +163,7 @@ autowrap_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_2jtsn")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxTexture_8bugq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_56v3a")
 theme_override_styles/hover = SubResource("StyleBoxTexture_o57t2")
@@ -161,7 +174,7 @@ autowrap_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_8bugq")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxTexture_uq3qu")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_0p6qk")
 theme_override_styles/hover = SubResource("StyleBoxTexture_s4bmq")
@@ -210,8 +223,8 @@ offset_right = -123.0
 offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxTexture_r8nfu")
-text = "Finally, still trying to avoid me after everything..."
+text = "Finally, still trying to avoid me after everything."
 vertical_alignment = 1
 autowrap_mode = 2
