@@ -2,21 +2,48 @@ extends Node2D
 
 @export var player_spaceship: PlayerSpacehip
 @export var camera: Camera2D
+@export var health_container: HBoxContainer
+@export var damage_indicator: TextureRect
+
+@export_subgroup("Corrupt planet things")
+@export var corruption_time_limit: float = 3
 
 var zoomed: bool = true
+
+var _current_corrupted_planets_within_range_of_player: Array
+var _current_corruption_time: float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 
 	player_spaceship.died.connect(_on_player_died)
 
-	pass
+	Globals.player_entered_corrupted_planet.connect(_player_entered_corrupted_planet)
+	Globals.player_exited_corrupted_planet.connect(_player_exited_corrupted_planet)
+	Globals.player_damaged.connect(_player_damaged)
+
+	damage_indicator.visible = false
+
+	Globals.reset_for_new_run()
+
 	# AudioManager.change_music("game_music")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	
+	if len(_current_corrupted_planets_within_range_of_player) > 0:
+		_current_corruption_time += delta
+		damage_indicator.visible = true
+		damage_indicator.modulate.a = _current_corruption_time / corruption_time_limit
+	else:
+		damage_indicator.visible = false
+		damage_indicator.modulate.a = 0
+
+	if _current_corruption_time >= corruption_time_limit:
+		# TODO: damage the player
+		Globals.damage_player(1)
+		_current_corruption_time = 0
 
 
 
@@ -37,3 +64,15 @@ func _on_player_died():
 
 func _reset():
 	Globals.Game_Over()
+
+func _player_entered_corrupted_planet(corrupted_planet):
+	_current_corrupted_planets_within_range_of_player.append(corrupted_planet)
+
+func _player_exited_corrupted_planet(corrupted_planet):
+	_current_corrupted_planets_within_range_of_player.erase(corrupted_planet)
+
+func _player_damaged():
+
+	camera.add_trauma(1.0)
+	health_container.get_child(Globals.healthPoints).texture = Globals.HEART_EMPTY
+	pass
