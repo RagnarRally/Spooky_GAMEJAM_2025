@@ -1,5 +1,7 @@
 extends TextureRect
 
+@export var enable_compute: bool = false
+
 # Create a local rendering device.
 var rd
 var shader_path := "res://shader-stuff/compute_planets.glsl"
@@ -161,6 +163,10 @@ func rebuild_buffers(positions: PackedVector2Array, velocity: PackedVector2Array
 	pipeline = rd.compute_pipeline_create(shader)
 
 func _ready() -> void:
+
+	if not enable_compute:
+		return
+
 	# rendering device
 	rd = RenderingServer.create_local_rendering_device()
 	
@@ -184,6 +190,10 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+
+	if not enable_compute:
+		return
+
 	var output_bytes_pos :PackedByteArray
 	var output_bytes_veloc :PackedByteArray
 	var output_bytes_mass :PackedByteArray
@@ -231,6 +241,10 @@ func _process(delta: float) -> void:
 	# Submit to GPU and wait for sync
 
 func _exit_tree() -> void:
+
+	if not enable_compute:
+		return
+
 	if buffer1.is_valid():
 		rd.free_rid(buffer1)
 	if buffer2.is_valid():
