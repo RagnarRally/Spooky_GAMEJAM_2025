@@ -92,6 +92,7 @@ player = NodePath("../PlayerSpaceship")
 special_planets_container = NodePath("../SpecialPlanets")
 spawn_range = 1200.0
 spawn_interval = Vector2(0.3, 0.6)
+spawn_special_planets = true
 min_distance_between_planets = 100.0
 
 [node name="SpecialPlanets" type="Node2D" parent="."]

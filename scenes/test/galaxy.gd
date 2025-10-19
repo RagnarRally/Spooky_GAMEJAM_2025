@@ -1,6 +1,6 @@
 extends TextureRect
 
-@export var enable_compute: bool = false
+@export var enable_compute: bool = true
 
 # Create a local rendering device.
 var rd
@@ -43,10 +43,10 @@ var pipeline
 # simulation parameters 
 var tex_size = 512
 var num_points = 512
-var shader_loc_size = 200
+var shader_loc_size = 256
 var arm_count :int= 10
 var arm_offset :float = 1.5
-var galaxy_rad = 512
+var galaxy_rad = 250
 var gravity = 0.00067
 var dt = 0.01
 var velocity_magnitude_scale :float= -0.5 #try negative
@@ -129,7 +129,7 @@ func rebuild_buffers(positions: PackedVector2Array, velocity: PackedVector2Array
 	var output_image := Image.create(tex_size, tex_size, false, Image.FORMAT_RGBAF)
 	image_texture = ImageTexture.create_from_image(output_image)
 	texture = image_texture
-	output_tex = rd.texture_create(fmt, view, output_image.get_data())
+	output_tex = rd.texture_create(fmt, view, [output_image.get_data()])
 	
 	uniform1.uniform_type = RenderingDevice.UNIFORM_TYPE_STORAGE_BUFFER
 	uniform1.binding = 0 # this needs to match the "binding" in our shader file
@@ -230,8 +230,8 @@ func _process(delta: float) -> void:
 	output_bytes_mass = rd.buffer_get_data(buffer6)
 	
 	rd.buffer_update(buffer1, 0, output_bytes_pos.size(), output_bytes_pos)
-	rd.buffer_update(buffer3, 0, output_bytes_pos.size(), output_bytes_veloc)
-	rd.buffer_update(buffer5, 0, output_bytes_pos.size(), output_bytes_mass)
+	rd.buffer_update(buffer3, 0, output_bytes_veloc.size(), output_bytes_veloc)
+	rd.buffer_update(buffer5, 0, output_bytes_mass.size(), output_bytes_mass)
 	
 	#set texture
 	byte_data = rd.texture_get_data(output_tex, 0)
