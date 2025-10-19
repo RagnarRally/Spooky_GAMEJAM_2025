@@ -11,7 +11,7 @@ func _ready() -> void:
 	buttonBlaming.button_up.connect(_option_pressed.bind("Blaming"))
 	buttonEmpathy.button_up.connect(_option_pressed.bind("Empathy"))
 	buttonLoving.button_up.connect(_option_pressed.bind("Loving"))
-	$CanvasLayer/Label.text = "TIME\n%.02f" % Globals.timeTotal
+	$CanvasLayer/Text.text = "TIME\n%.02f" % Globals.timeTotal
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
