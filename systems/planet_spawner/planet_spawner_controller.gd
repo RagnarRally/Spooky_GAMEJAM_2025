@@ -65,6 +65,8 @@ func _valid_planet_placement(new_planet_pos):
 		if !is_instance_valid(p):
 			continue
 		var d = p.global_position.distance_squared_to(new_planet_pos)
+		if d > pow(6000, 2):
+			p.queue_free()
 		if d < pow(min_distance_between_planets, 2):
 			return false
 	return true
@@ -92,7 +94,7 @@ func spawn_planet():
 
 	for i in range(3): # make three attempts
 		var angle_rad = randf_range(player_direction_angle-deg_to_rad(spawn_spread_deg), player_direction_angle+deg_to_rad(spawn_spread_deg)) 
-		dist = spawn_range #randf_range(100, 300)
+		dist = randf_range(spawn_range, spawn_range + 500) #randf_range(100, 300)
 		size = randf_range(10, 32)
 		is_corrupted = randf() > 0.5
 

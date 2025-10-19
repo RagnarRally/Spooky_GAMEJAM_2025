@@ -60,9 +60,9 @@ planet_packed = ExtResource("3_lbhrr")
 corrupted_planet_packed = ExtResource("9_dinhu")
 resource_packed = ExtResource("8_0tnpc")
 player = NodePath("../PlayerSpaceship")
-spawn_range = 1600.0
-spawn_interval = Vector2(0.6, 1.2)
-min_distance_between_planets = 250.0
+spawn_range = 1200.0
+spawn_interval = Vector2(0.3, 0.6)
+min_distance_between_planets = 100.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10
