@@ -1,7 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bn4jat02k60lv"]
+[gd_scene load_steps=10 format=3 uid="uid://bn4jat02k60lv"]
 
 [ext_resource type="Script" uid="uid://d0r7vgghdgnww" path="res://entities/resource/resource.gd" id="1_sbdyy"]
+[ext_resource type="Script" uid="uid://cnqhqro3npd0c" path="res://systems/audio/configurable_audio_stream_resource.gd" id="2_osjek"]
 [ext_resource type="Texture2D" uid="uid://bxw07arur1ucr" path="res://assets/art/Objects/Collectible_Heart.png" id="2_siic4"]
+[ext_resource type="AudioStream" uid="uid://drk2ryalaiw4b" path="res://sounds/heartsound.mp3" id="3_vlvk4"]
+
+[sub_resource type="Resource" id="Resource_mud1n"]
+script = ExtResource("2_osjek")
+stream = ExtResource("3_vlvk4")
+pitch_range = Vector2(0.95, 1.05)
+audio_bus = &"Sound Effect"
+metadata/_custom_type_script = "uid://cnqhqro3npd0c"
 
 [sub_resource type="Animation" id="Animation_tnnyb"]
 length = 0.001
@@ -49,6 +58,7 @@ turbulence_enabled = true
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_sbdyy")
+health_sound = SubResource("Resource_mud1n")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(1, -0.49999905)

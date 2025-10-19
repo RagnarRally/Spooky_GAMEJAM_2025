@@ -2,6 +2,8 @@ extends Node
 
 var hasEntered = false
 
+@export var health_sound: ConfigurableAudioStreamResource
+
 func _on_body_entered(body: Node2D) -> void:
 	if hasEntered:
 		return
@@ -11,5 +13,6 @@ func _on_body_entered(body: Node2D) -> void:
 		Globals.healthPoints += 1
 	var tween = create_tween()
 	tween.tween_property($Node2D, 'modulate', Color(0.0, 0.0, 0.0, 0.0), 0.5)
+	AudioManager.play_sound_effect(health_sound)
 	await tween.finished
 	queue_free()
