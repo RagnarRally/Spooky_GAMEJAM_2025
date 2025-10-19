@@ -227,5 +227,6 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxTexture_r8nfu")
 text = "Finally, still trying to avoid me after everything."
+horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

@@ -27,14 +27,14 @@ func _option_pressed(option: String):
 		return
 	onePress = true
 	if option == "Angry":
-		$CanvasLayer/HBoxContainer/Angry.text = "You are dead!"
+		$CanvasLayer/DemonicVoice.text = "You are dead!"
 		#get_tree().quit()
 	if option == "Blaming":
-		$CanvasLayer/HBoxContainer/Blaming.text = "I hate you!"
+		$CanvasLayer/DemonicVoice.text = "I hate you!"
 		#get_tree().quit()
 	if option == "Empathy":
-		$CanvasLayer/HBoxContainer/Empathic.text = "Death to the galaxy!"
+		$CanvasLayer/DemonicVoice.text = "Death to the galaxy!"
 	if option == "Loving":
-		$CanvasLayer/HBoxContainer/Loving.text = "I will kill you pervert!"
+		$CanvasLayer/DemonicVoice.text = "I will kill you pervert!"
 	await get_tree().create_timer(3.0).timeout
 	SceneSwitcher.change_scene_to("game")
