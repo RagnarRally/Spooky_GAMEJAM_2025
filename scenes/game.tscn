@@ -108,6 +108,7 @@ grow_vertical = 2
 texture = ExtResource("12_kvuet")
 
 [node name="CosmicHorror" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_u5sy4")]
+process_mode = 4
 z_index = -1
 position = Vector2(-16, 545)
 target = NodePath("../PlayerSpaceship")

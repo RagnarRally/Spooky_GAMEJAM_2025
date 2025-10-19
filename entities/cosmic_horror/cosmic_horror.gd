@@ -56,7 +56,7 @@ func _chasing_process(delta):
 
 	var chase_vector = target_dir * chase_speed * delta * distance_multplier
 
-	print("Cosmic horror: speed=%0.02f, distance=%0.02f" % [chase_vector.length(), distance])
+	#print("Cosmic horror: speed=%0.02f, distance=%0.02f" % [chase_vector.length(), distance])
 	
 	global_translate(chase_vector)
 
