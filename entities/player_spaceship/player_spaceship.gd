@@ -15,13 +15,18 @@ signal died
 @onready var MiniGame = $minigame
 @onready var camera = $Camera2D
 
+@onready var drag_hint = $drag_hint
+@onready var drag_hint_dot = $drag_hint/dot
+
 const distance = 1000
 
 var thrust = Vector2.ZERO
 var rotation_dir = 0
 
+# FOR FLICKING
 var dragging = false
 var mouse_pos: Vector2
+var drag_hint_mouse: Vector2
 
 #const removeTimeOut = 1.0
 #var timeOut
@@ -55,6 +60,29 @@ func _process(delta: float) -> void:
 	#if (timeOut < 0.0):
 		#timeOut = removeTimeOut
 		#remove_stuff()
+	if dragging:
+		drag_hint_mouse = get_global_mouse_position()
+		drag_hint.visible = true
+		drag_hint.position = position
+		var rot_dir = drag_hint.global_position.direction_to(drag_hint_mouse)
+		drag_hint.look_at(drag_hint.global_position - rot_dir)
+		#if get_global_mouse_position().distance_to(screen_center) < drag_hint.global_position.distance_to(screen_center):
+			#drag_hint_dot.global_position = mouse_pos
+		#else:
+			#drag_hint_dot.global_position = screen_center
+		#drag_hint_dot.global_position = drag_hint_mouse
+		#var dot_dir = drag_hint_mouse - global_position
+		#drag_hint_dot.global_position = global_position + dot_dir.limit_length(250)
+		var dot_dir = drag_hint_mouse - global_position
+		var length = dot_dir.length()
+
+		if length > 0:
+			var clamped_length = clamp(length, 94, 250)
+			drag_hint_dot.global_position = global_position + dot_dir.normalized() * clamped_length
+		else:
+			drag_hint_dot.global_position = global_position + Vector2.RIGHT * 94
+	else:
+		drag_hint.visible = false
 
 func _input(event):
 	#if event.is_action_pressed("thrust") and bursts:

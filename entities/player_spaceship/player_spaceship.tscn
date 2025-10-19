@@ -65,11 +65,15 @@ metadata/_custom_type_script = "uid://de34r324se8ca"
 shape = SubResource("CircleShape2D_kecd5")
 
 [node name="drag_hint" type="Node2D" parent="."]
+visible = false
+top_level = true
 
 [node name="circle" type="Sprite2D" parent="drag_hint"]
+position = Vector2(-94, 0)
 texture = ExtResource("9_v3avg")
 
 [node name="dot" type="Sprite2D" parent="drag_hint"]
+position = Vector2(-94, 0)
 texture = ExtResource("10_t5s3e")
 
 [node name="edge" type="Sprite2D" parent="drag_hint"]
