@@ -54,6 +54,8 @@ func _physics_process(_delta : float):
 	constant_torque = rotation_dir * spin_power
 	
 func _process(delta: float) -> void:
+	Globals.timeTotal += delta
+	
 	# minigame follow
 	MiniGame.position = position + minigame_offset
 	#timeOut -= delta

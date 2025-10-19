@@ -7,6 +7,7 @@ signal player_damaged()
 
 const MAX_HP = 3
 var healthPoints = MAX_HP
+var timeTotal = 0.0
 
 const HEART_FULL = preload("res://assets/art/Objects/Collectible_Heart.png")
 const HEART_EMPTY = preload("res://assets/art/Objects/Heart_Empty.png")

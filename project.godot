@@ -13,7 +13,7 @@ config_version=5
 config/name="Spooky_GAME_JAM_2025"
 run/main_scene="uid://dugpck31w7q4h"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://bgbddn6i56oto"
 
 [audio]
 

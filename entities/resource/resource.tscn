@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bn4jat02k60lv"]
+[gd_scene load_steps=7 format=3 uid="uid://bn4jat02k60lv"]
 
 [ext_resource type="Script" uid="uid://d0r7vgghdgnww" path="res://entities/resource/resource.gd" id="1_sbdyy"]
 [ext_resource type="Texture2D" uid="uid://bxw07arur1ucr" path="res://assets/art/Objects/Collectible_Heart.png" id="2_siic4"]
@@ -40,6 +40,13 @@ _data = {
 &"animate_heart": SubResource("Animation_siic4")
 }
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_siic4"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 9.999997
+radial_accel_max = 19.999998
+turbulence_enabled = true
+
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_sbdyy")
 
@@ -61,5 +68,11 @@ texture = ExtResource("2_siic4")
 
 [node name="CollectibleHeart" type="Sprite2D" parent="Node2D"]
 texture = ExtResource("2_siic4")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+emitting = false
+texture = ExtResource("2_siic4")
+process_material = SubResource("ParticleProcessMaterial_siic4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
