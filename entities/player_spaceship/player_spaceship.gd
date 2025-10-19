@@ -5,6 +5,7 @@ signal died
 
 @export var engine_power = 800
 @export var spin_power = 10000
+@export var max_speed = 500.0
 @export var minigame_offset = Vector2(-170,100)
 #@export var scene : PackedScene
 #@export var MiniGame : FuelMiniGame
@@ -46,7 +47,10 @@ func _ready() -> void:
 		#instance.position = Vector2(-transform.y * distance) + position
 		#get_tree().current_scene.add_child(instance)
 		#spawned_objects.append(instance)
-		
+
+func _integrate_forces(state):
+	if state.linear_velocity.length()>max_speed:
+		state.linear_velocity=state.linear_velocity.normalized()*max_speed
 
 func _physics_process(_delta : float):
 	var desired_angle = linear_velocity.angle()

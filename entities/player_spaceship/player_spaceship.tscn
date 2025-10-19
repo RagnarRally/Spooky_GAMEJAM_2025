@@ -21,8 +21,10 @@ metadata/_custom_type_script = "uid://cnqhqro3npd0c"
 radius = 22.0
 
 [node name="PlayerSpaceship" type="RigidBody2D"]
+linear_damp = 0.5
 script = ExtResource("1_uu7e4")
 engine_power = 1000
+max_speed = 1200.0
 boost_sound = SubResource("Resource_iotih")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

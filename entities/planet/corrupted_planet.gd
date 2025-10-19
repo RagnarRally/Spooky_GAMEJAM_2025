@@ -39,7 +39,9 @@ func setup(new_properties: PlanetProperties):
 	_graphics_root.scale = Vector2.ONE * new_properties.size / 10
 	collision_shape.shape.radius = new_properties.size
 
-	_current_corruption_radius = new_properties.size*3+32
+	var base_corrupt = new_properties.size*3+32
+
+	_current_corruption_radius =  randf_range(base_corrupt, base_corrupt*4)
 
 	_properties = new_properties
 	_set_corruption_size(_current_corruption_radius)
