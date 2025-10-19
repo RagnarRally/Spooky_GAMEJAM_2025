@@ -28,8 +28,7 @@ func _ready() -> void:
 	Globals.reset_for_new_run()
 
 	damage_indicator.modulate.a = 0
-
-	# AudioManager.change_music("game_music")
+	AudioManager.change_music("game_music")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
