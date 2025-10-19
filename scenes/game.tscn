@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c1gpmg3iulicg"]
+[gd_scene load_steps=16 format=3 uid="uid://c1gpmg3iulicg"]
 
 [ext_resource type="Script" uid="uid://dgwa6pxgwf8w5" path="res://scenes/game.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://dkvu8ncimgpxm" path="res://entities/player_spaceship/player_spaceship.tscn" id="1_uwrxv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scenes/camera_2d.gd" id="5_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://dxtiwq6y4dlho" path="res://entities/cosmic_horror/cosmic_horror.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bn4jat02k60lv" path="res://entities/resource/resource.tscn" id="8_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://bhnjrdgdwcht8" path="res://entities/planet/corrupted_planet.tscn" id="9_dinhu"]
 [ext_resource type="Texture2D" uid="uid://bxw07arur1ucr" path="res://assets/art/Objects/Collectible_Heart.png" id="9_vtaks"]
 
 [sub_resource type="Resource" id="Resource_vtaks"]
@@ -53,8 +54,12 @@ process_material = SubResource("ParticleProcessMaterial_iywne")
 
 [node name="PlanetSpawnerController" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_lnu2h")]
 planet_packed = ExtResource("3_lbhrr")
+corrupted_planet_packed = ExtResource("9_dinhu")
 resource_packed = ExtResource("8_0tnpc")
 player = NodePath("../PlayerSpaceship")
+spawn_range = 1600.0
+spawn_interval = Vector2(0.6, 1.2)
+min_distance_between_planets = 250.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10
