@@ -5,7 +5,6 @@ signal died
 
 @export var engine_power = 800
 @export var spin_power = 10000
-@export var max_speed = 500.0
 @export var minigame_offset = Vector2(-170,100)
 #@export var scene : PackedScene
 #@export var MiniGame : FuelMiniGame
@@ -38,6 +37,10 @@ const MAX_DISTANCE = 2000
 
 var bursts = 0
 
+const MAXCOOLDOWN = 0.3
+
+var coolDown = 0
+
 func _ready() -> void:
 	health_component.health_zero.connect(_on_health_zero)
 	#timeOut = removeTimeOut
@@ -47,16 +50,18 @@ func _ready() -> void:
 		#instance.position = Vector2(-transform.y * distance) + position
 		#get_tree().current_scene.add_child(instance)
 		#spawned_objects.append(instance)
-
-func _integrate_forces(state):
-	if state.linear_velocity.length()>max_speed:
-		state.linear_velocity=state.linear_velocity.normalized()*max_speed
+		
 
 func _physics_process(_delta : float):
 	var desired_angle = linear_velocity.angle()
 	rotation = lerp_angle(rotation, desired_angle, 2*_delta)
 	
 func _process(delta: float) -> void:
+	if coolDown:
+		coolDown -= delta
+		if coolDown < 0.0:
+			coolDown = 0.0
+	
 	Globals.timeTotal += delta
 	
 	# minigame follow
@@ -109,6 +114,9 @@ func _input(event):
 			dragging = false
 			var mouse_stop_pos = get_global_mouse_position()
 			var drag_dir = mouse_pos.direction_to(mouse_stop_pos)
+			if coolDown:
+				return
+			coolDown = MAXCOOLDOWN
 			apply_impulse(-drag_dir * engine_power)
 			AudioManager.play_sound_effect(boost_sound)
 		
