@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c1gpmg3iulicg"]
+[gd_scene load_steps=21 format=3 uid="uid://c1gpmg3iulicg"]
 
 [ext_resource type="Script" uid="uid://dgwa6pxgwf8w5" path="res://scenes/game.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://dkvu8ncimgpxm" path="res://entities/player_spaceship/player_spaceship.tscn" id="1_uwrxv"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bn4jat02k60lv" path="res://entities/resource/resource.tscn" id="8_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://bhnjrdgdwcht8" path="res://entities/planet/corrupted_planet.tscn" id="9_dinhu"]
 [ext_resource type="Texture2D" uid="uid://bxw07arur1ucr" path="res://assets/art/Objects/Collectible_Heart.png" id="9_vtaks"]
+[ext_resource type="PackedScene" uid="uid://dmvi5nupfn4my" path="res://entities/planet/computed_planet.tscn" id="11_ir15t"]
 [ext_resource type="Texture2D" uid="uid://c55hqpu0mmf46" path="res://assets/art/Effects/red_indicator.png" id="12_kvuet"]
 
 [sub_resource type="Resource" id="Resource_vtaks"]
@@ -24,11 +25,19 @@ metadata/_custom_type_script = "uid://cnqhqro3npd0c"
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_kvpfn"]
 noise_type = 0
 
+[sub_resource type="Gradient" id="Gradient_trtic"]
+offsets = PackedFloat32Array(0, 0.074074075, 0.93415636, 0.9958848)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ir15t"]
+gradient = SubResource("Gradient_trtic")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iywne"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(1000, 1000, 1)
 gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_ir15t")
 
 [sub_resource type="Curve" id="Curve_kvuet"]
 _limits = [0.0, 2.0, 0.0, 1000.0]
@@ -41,7 +50,19 @@ player_spaceship = NodePath("PlayerSpaceship")
 cosmic_horror_entity = NodePath("CosmicHorror")
 camera = NodePath("PlayerSpaceship/Camera2D")
 health_container = NodePath("CanvasLayer/HBoxContainer")
-damage_indicator = NodePath("CanvasLayer/damage indicator")
+damage_indicator = NodePath("CanvasLayer3/damage indicator")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07683582, 0.07683582, 0.07683582, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="PlayerSpaceship" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(548, 329)
@@ -62,26 +83,21 @@ lifetime = 20.0
 preprocess = 20.0
 process_material = SubResource("ParticleProcessMaterial_iywne")
 
-[node name="PlanetSpawnerController" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_lnu2h")]
+[node name="PlanetSpawnerController" parent="." node_paths=PackedStringArray("player", "special_planets_container") instance=ExtResource("2_lnu2h")]
 planet_packed = ExtResource("3_lbhrr")
 corrupted_planet_packed = ExtResource("9_dinhu")
 resource_packed = ExtResource("8_0tnpc")
+special_planet_packed = ExtResource("11_ir15t")
 player = NodePath("../PlayerSpaceship")
+special_planets_container = NodePath("../SpecialPlanets")
 spawn_range = 1200.0
 spawn_interval = Vector2(0.3, 0.6)
 min_distance_between_planets = 100.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -10
+[node name="SpecialPlanets" type="Node2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.07683582, 0.07683582, 0.07683582, 1)
-metadata/_edit_use_anchors_ = true
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 offset_right = 40.0
@@ -99,16 +115,7 @@ texture = ExtResource("9_vtaks")
 layout_mode = 2
 texture = ExtResource("9_vtaks")
 
-[node name="damage indicator" type="TextureRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("12_kvuet")
-
 [node name="CosmicHorror" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_u5sy4")]
-process_mode = 4
 z_index = -1
 position = Vector2(-16, 545)
 target = NodePath("../PlayerSpaceship")
@@ -116,3 +123,17 @@ chase_speed = 500.0
 chase_time_range = Vector2(1, 3)
 rest_time_range = Vector2(1, 2)
 speed_curve = SubResource("Curve_kvuet")
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="damage indicator" type="TextureRect" parent="CanvasLayer3"]
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_kvuet")

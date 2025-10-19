@@ -4,20 +4,26 @@ class_name PlanetSpawnerController
 @export var planet_packed: PackedScene
 @export var corrupted_planet_packed: PackedScene
 @export var resource_packed: PackedScene
+@export var special_planet_packed: PackedScene
 @export var player: RigidBody2D
+@export var special_planets_container: Node2D
 
 @export var spawn_range: float = 1000
 @export var spawn_interval: Vector2 = Vector2(1,2)
 @export var spawn_interval_resource: Vector2 = Vector2(4,6)
+@export var spawn_interval_special_planet: Vector2 = Vector2(3,6)
+@export var spawn_special_planets: bool = false
 @export var spawn_spread_deg: float = 30
 @export var min_distance_between_planets: float = 400
 @export var min_distance_between_planetsandresources: float = 200
 
 var _spawned_planets: Array
 var _spawned_resources = []
+var _spawned_special_planets = []
 
 var _current_spawn_time: float = 0
 var _current_spawn_time_resource: float = 0
+var _current_spawn_time_special_planet: float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,23 +48,41 @@ func _process(delta: float) -> void:
 		#print("Spawned planet: " + str(did_spawn_planet))
 		_current_spawn_time_resource = randf_range(spawn_interval_resource.x, spawn_interval_resource.y)
 
+	_current_spawn_time_special_planet -= delta
+	if _current_spawn_time_special_planet <= 0 and spawn_special_planets:
+		spawn_special_planet()
+		_current_spawn_time_special_planet = randf_range(spawn_interval_special_planet.x, spawn_interval_special_planet.y)
 	queue_redraw()
 
-func algo():
-
-	var _planets_in_range: Array[Planet] = []
-	var _planets_outside_range: Array[Planet] = []
-
-	for p in _spawned_planets:
-
-		var d = p.global_position.distance_squared_to(player.global_position)
-
-		if d < pow(d, 2):
-			_planets_in_range.append(p)
-		else:
-			_planets_outside_range.append(p)
-
+func spawn_special_planet():
 	var player_direction = player.linear_velocity.normalized()
+	var player_direction_angle = player.linear_velocity.angle()
+
+	var desired_position
+	var valid_planets = []
+
+	for p in _spawned_special_planets:
+		if !is_instance_valid(p):
+			continue
+		var d = p.global_position.distance_squared_to(player.global_position)
+		if d > pow(2000, 2):
+			p.queue_free()
+		valid_planets.append(p)
+
+	_spawned_special_planets = valid_planets
+
+	if len(_spawned_special_planets) > 3:
+		return
+
+	var angle_rad = randf_range(player_direction_angle-deg_to_rad(spawn_spread_deg), player_direction_angle+deg_to_rad(spawn_spread_deg)) 
+	desired_position = player.global_position + Vector2.RIGHT.rotated(angle_rad) * (spawn_range+300)
+
+	var planet_instance = special_planet_packed.instantiate()
+	special_planets_container.add_child(planet_instance)
+	planet_instance.global_position = desired_position
+	_spawned_special_planets.append(planet_instance)
+
+
 
 func _valid_planet_placement(new_planet_pos):
 	for p in _spawned_planets:

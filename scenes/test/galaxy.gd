@@ -40,11 +40,11 @@ var pipeline
 
 # simulation parameters 
 var tex_size = 512
-var num_points = 1024
-var shader_loc_size = 512
+var num_points = 512
+var shader_loc_size = 200
 var arm_count :int= 10
 var arm_offset :float = 1.5
-var galaxy_rad = 250
+var galaxy_rad = 512
 var gravity = 0.00067
 var dt = 0.01
 var velocity_magnitude_scale :float= -0.5 #try negative

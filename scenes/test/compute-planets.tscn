@@ -1,10 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://brx8e76eagxpj"]
 
-[ext_resource type="Script" uid="uid://b2bcalv7mnvx6" path="res://scenes/test/galaxy.gd" id="1_4gwux"]
+[ext_resource type="PackedScene" uid="uid://dmvi5nupfn4my" path="res://entities/planet/computed_planet.tscn" id="1_4gwux"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,7 +24,4 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="galaxy" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("1_4gwux")
+[node name="galaxy" parent="." instance=ExtResource("1_4gwux")]

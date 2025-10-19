@@ -203,6 +203,6 @@ void main() {
     }
 
     if (is_center) {
-        draw_circle(my_pos, 10., color_centre);
+        draw_circle(my_pos, 5., color_centre);
     }
 }
