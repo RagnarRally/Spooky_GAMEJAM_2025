@@ -13,6 +13,8 @@ class_name CorruptedPlanet
 @export var corrupted_area_shape: CollisionShape2D
 @export var corruption_sprite: Sprite2D
 
+@export var explosion_sfx: ConfigurableAudioStreamResource
+
 var _properties: PlanetProperties
 
 enum {CORRUPTION_BEGIN, SPREADING}
@@ -62,6 +64,7 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	#print(Globals.healthPoints)
 
 func explode_planet():
+	AudioManager.play_sound_effect(explosion_sfx)
 	anim_player.play("explode")
 	await anim_player.animation_finished
 	queue_free()
