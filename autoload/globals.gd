@@ -14,7 +14,6 @@ const HEART_EMPTY = preload("res://assets/art/Objects/Heart_Empty.png")
 
 func Game_Over():
 	SceneSwitcher.change_scene_to("game_over") 
-	healthPoints = MAX_HP
 
 func damage_player(amount):
 	healthPoints -= amount
@@ -23,6 +22,9 @@ func damage_player(amount):
 	if healthPoints <= 0:
 		Game_Over()
 
+func reset_for_new_run():
+	healthPoints = MAX_HP
+	timeTotal = 0
 
 ## Called when the node enters the scene tree for the first time.
 #func _ready() -> void:

@@ -3,6 +3,7 @@ extends Node2D
 @export var player_spaceship: PlayerSpacehip
 @export var camera: Camera2D
 @export var health_container: HBoxContainer
+@export var damage_indicator: TextureRect
 
 @export_subgroup("Corrupt planet things")
 @export var corruption_time_limit: float = 3
@@ -21,7 +22,10 @@ func _ready() -> void:
 	Globals.player_exited_corrupted_planet.connect(_player_exited_corrupted_planet)
 	Globals.player_damaged.connect(_player_damaged)
 
-	pass
+	damage_indicator.visible = false
+
+	Globals.reset_for_new_run()
+
 	# AudioManager.change_music("game_music")
 
 
@@ -30,6 +34,11 @@ func _process(delta: float) -> void:
 	
 	if len(_current_corrupted_planets_within_range_of_player) > 0:
 		_current_corruption_time += delta
+		damage_indicator.visible = true
+		damage_indicator.modulate.a = _current_corruption_time / corruption_time_limit
+	else:
+		damage_indicator.visible = false
+		damage_indicator.modulate.a = 0
 
 	if _current_corruption_time >= corruption_time_limit:
 		# TODO: damage the player
