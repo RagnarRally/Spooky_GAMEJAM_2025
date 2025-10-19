@@ -3,28 +3,12 @@
 [ext_resource type="Script" uid="uid://d0r7vgghdgnww" path="res://entities/resource/resource.gd" id="1_sbdyy"]
 [ext_resource type="Texture2D" uid="uid://bxw07arur1ucr" path="res://assets/art/Objects/Collectible_Heart.png" id="2_siic4"]
 
-[sub_resource type="Animation" id="Animation_siic4"]
-resource_name = "animate_heart"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Heart:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_tnnyb"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Heart:scale")
+tracks/0/path = NodePath("Node2D/Heart:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -32,6 +16,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_siic4"]
+resource_name = "animate_heart"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Heart:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tnnyb"]
@@ -47,17 +47,19 @@ script = ExtResource("1_sbdyy")
 position = Vector2(1, -0.49999905)
 polygon = PackedVector2Array(6, -23.5, -1, -18.5, -9, -23.5, -19, -23.5, -30, -15.500001, -30, -1.500001, -6, 23.5, 4, 23.5, 27, -0.50000095, 27, -16.5, 16, -23.5)
 
-[node name="Heart" type="Sprite2D" parent="."]
-modulate = Color(7.5643015, 0, 4.5106, 0.39215687)
-texture = ExtResource("2_siic4")
-
-[node name="CollectibleHeart" type="Sprite2D" parent="."]
-texture = ExtResource("2_siic4")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_tnnyb")
 }
 autoplay = "animate_heart"
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Heart" type="Sprite2D" parent="Node2D"]
+modulate = Color(7.5643015, 0, 4.5106, 0.39215687)
+texture = ExtResource("2_siic4")
+
+[node name="CollectibleHeart" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("2_siic4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
