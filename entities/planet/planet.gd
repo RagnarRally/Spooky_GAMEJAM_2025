@@ -9,6 +9,8 @@ class_name Planet
 @export var explosion_particles: GPUParticles2D
 @export var anim_player: AnimationPlayer
 
+@export var explosion_sfx: ConfigurableAudioStreamResource
+
 var _properties: PlanetProperties
 
 # Called when the node enters the scene tree for the first time.
@@ -44,6 +46,7 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	#print(Globals.healthPoints)
 
 func explode_planet():
+	AudioManager.play_sound_effect(explosion_sfx)
 	anim_player.play("explode")
 	await anim_player.animation_finished
 	queue_free()
