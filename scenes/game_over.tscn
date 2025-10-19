@@ -13,7 +13,7 @@
 [sub_resource type="Theme" id="Theme_racf3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7m3ot"]
-content_margin_top = 36.0
+content_margin_top = 48.0
 texture = ExtResource("4_racf3")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_racf3"]
@@ -61,15 +61,18 @@ modulate_color = Color(0.5649617, 0.5649616, 0.5649616, 1)
 [sub_resource type="Theme" id="Theme_8bugq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uq3qu"]
+content_margin_left = 22.0
 content_margin_top = 48.0
 texture = ExtResource("7_8bugq")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0p6qk"]
+content_margin_left = 22.0
 content_margin_top = 48.0
 texture = ExtResource("7_8bugq")
 modulate_color = Color(0.4045111, 0.40451115, 0.4045111, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4bmq"]
+content_margin_left = 22.0
 content_margin_top = 48.0
 texture = ExtResource("7_8bugq")
 modulate_color = Color(0.5649617, 0.5649616, 0.5649616, 1)
@@ -105,7 +108,6 @@ expand_mode = 2
 stretch_mode = 5
 
 [node name="Answers" type="Control" parent="CanvasLayer"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
