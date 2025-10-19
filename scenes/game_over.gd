@@ -4,6 +4,7 @@ extends Node2D
 @export var buttonBlaming: Button
 @export var buttonEmpathy: Button
 @export var buttonLoving: Button
+var onePress = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,7 +23,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _option_pressed(option: String):
-	
+	if onePress:
+		return
+	onePress = true
 	if option == "Angry":
 		$CanvasLayer/HBoxContainer/Angry.text = "You are dead!"
 		#get_tree().quit()
