@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1gpmg3iulicg"]
+[gd_scene load_steps=15 format=3 uid="uid://c1gpmg3iulicg"]
 
 [ext_resource type="Script" uid="uid://dgwa6pxgwf8w5" path="res://scenes/game.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://dkvu8ncimgpxm" path="res://entities/player_spaceship/player_spaceship.tscn" id="1_uwrxv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cnqhqro3npd0c" path="res://systems/audio/configurable_audio_stream_resource.gd" id="3_gee14"]
 [ext_resource type="PackedScene" uid="uid://ckrpxipsrp27m" path="res://entities/planet/planet.tscn" id="3_lbhrr"]
 [ext_resource type="AudioStream" uid="uid://bda8jhx6ugmhs" path="res://assets/sound/effects/thrust_new.wav" id="4_0tnpc"]
+[ext_resource type="Script" uid="uid://baj2edwsn0ali" path="res://scenes/camera_2d.gd" id="5_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://dxtiwq6y4dlho" path="res://entities/cosmic_horror/cosmic_horror.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bn4jat02k60lv" path="res://entities/resource/resource.tscn" id="8_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://bxw07arur1ucr" path="res://assets/art/Objects/Collectible_Heart.png" id="9_vtaks"]
@@ -17,6 +18,9 @@ stream = ExtResource("4_0tnpc")
 pitch_range = Vector2(0.9, 1.1)
 audio_bus = &"Sound Effect"
 metadata/_custom_type_script = "uid://cnqhqro3npd0c"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kvpfn"]
+noise_type = 0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iywne"]
 particle_flag_disable_z = true
@@ -36,6 +40,8 @@ spin_power = 1000
 boost_sound = SubResource("Resource_vtaks")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerSpaceship"]
+script = ExtResource("5_kvpfn")
+noise = SubResource("FastNoiseLite_kvpfn")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="PlayerSpaceship"]
 position = Vector2(8, 2)

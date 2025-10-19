@@ -13,6 +13,7 @@ signal died
 
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var MiniGame = $minigame
+@onready var camera = $Camera2D
 
 const distance = 1000
 

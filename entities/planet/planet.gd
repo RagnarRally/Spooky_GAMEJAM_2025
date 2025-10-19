@@ -39,6 +39,7 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	Globals.healthPoints -= 1
+	get_node("/root/Game/PlayerSpaceship/Camera2D").add_trauma(1.0)
 	get_node("/root/Game/CanvasLayer/HBoxContainer").get_child(Globals.healthPoints).texture = Globals.HEART_EMPTY
 	#get_node("/root/Game/CanvasLayer/Label").text = "HP: " + str(Globals.healthPoints)
 	if Globals.healthPoints <= 0:
