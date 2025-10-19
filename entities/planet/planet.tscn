@@ -1,12 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://ckrpxipsrp27m"]
+[gd_scene load_steps=21 format=3 uid="uid://ckrpxipsrp27m"]
 
 [ext_resource type="Script" uid="uid://d3kn02m7watx" path="res://entities/planet/planet.gd" id="1_fhyl1"]
 [ext_resource type="Script" uid="uid://cq300ud1f7bro" path="res://entities/planet/planet_properties_res.gd" id="2_7hoq1"]
 [ext_resource type="Script" uid="uid://cnqhqro3npd0c" path="res://systems/audio/configurable_audio_stream_resource.gd" id="3_1uo7p"]
 [ext_resource type="Texture2D" uid="uid://cwklse3j3g0o3" path="res://assets/art/Start Game/Shine_Effect.png" id="3_g43px"]
-[ext_resource type="Texture2D" uid="uid://5t1tybrotauu" path="res://assets/art/Start Game/Planet_1.png" id="3_itihs"]
 [ext_resource type="AudioStream" uid="uid://dclpmsxnfb2mr" path="res://assets/sound/effects/planetexplosion.mp3" id="4_01opl"]
 [ext_resource type="Texture2D" uid="uid://bgbic7qliga1d" path="res://assets/art/Objects/Asteroid_Small.png" id="5_agge8"]
+[ext_resource type="Texture2D" uid="uid://b0tdkjqpne2pl" path="res://assets/art/Objects/Anty_Gravity_Planet.png" id="6_1uo7p"]
 
 [sub_resource type="Resource" id="Resource_laq2e"]
 script = ExtResource("2_7hoq1")
@@ -100,6 +100,22 @@ tracks/3/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_1uo7p"]
+resource_name = "create"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_agge8"]
 resource_name = "explode"
 length = 0.5
@@ -140,22 +156,6 @@ tracks/2/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_1uo7p"]
-resource_name = "create"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1uo7p"]
 _data = {
 &"RESET": SubResource("Animation_gq23p"),
@@ -178,8 +178,8 @@ texture = ExtResource("3_g43px")
 [node name="Graphics" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Graphics"]
-scale = Vector2(0.01, 0.01)
-texture = ExtResource("3_itihs")
+scale = Vector2(0.134, 0.134)
+texture = ExtResource("6_1uo7p")
 
 [node name="Area2D2" type="Area2D" parent="."]
 
