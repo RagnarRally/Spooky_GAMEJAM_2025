@@ -7,6 +7,7 @@ extends Node2D
 func _ready() -> void:
 	left_option_button.button_up.connect(_option_pressed.bind("left"))
 	right_option_button.button_up.connect(_option_pressed.bind("right"))
+	$CanvasLayer/Label.text = "TIME\n%.02f" % Globals.timeTotal
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

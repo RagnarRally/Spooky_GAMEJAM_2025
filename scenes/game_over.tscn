@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2uxgumk0t4gt"]
 
-[ext_resource type="Script" path="res://scenes/game_over.gd" id="1_wqhvx"]
+[ext_resource type="Script" uid="uid://11su1hgoi3ii" path="res://scenes/game_over.gd" id="1_wqhvx"]
 [ext_resource type="Texture2D" uid="uid://hxicw51sr3rp" path="res://assets/art/temp/IMG_0249.jpg" id="1_xeevv"]
 
 [node name="GameOver" type="Node2D" node_paths=PackedStringArray("left_option_button", "right_option_button")]
@@ -59,3 +59,10 @@ text = "no"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "NO (in all caps)"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 206.0
+offset_bottom = 67.0
+text = "TIME
+0.0"
+horizontal_alignment = 1

@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cnqhqro3npd0c" path="res://systems/audio/configurable_audio_stream_resource.gd" id="3_gee14"]
 [ext_resource type="PackedScene" uid="uid://ckrpxipsrp27m" path="res://entities/planet/planet.tscn" id="3_lbhrr"]
 [ext_resource type="AudioStream" uid="uid://bda8jhx6ugmhs" path="res://assets/sound/effects/thrust_new.wav" id="4_0tnpc"]
-[ext_resource type="Script" uid="uid://baj2edwsn0ali" path="res://scenes/camera_2d.gd" id="5_kvpfn"]
+[ext_resource type="Script" path="res://scenes/camera_2d.gd" id="5_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://dxtiwq6y4dlho" path="res://entities/cosmic_horror/cosmic_horror.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bn4jat02k60lv" path="res://entities/resource/resource.tscn" id="8_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://bxw07arur1ucr" path="res://assets/art/Objects/Collectible_Heart.png" id="9_vtaks"]
