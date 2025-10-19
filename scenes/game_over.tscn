@@ -67,10 +67,10 @@ texture = ExtResource("8_8bugq")
 
 [node name="GameOver" type="Node2D" node_paths=PackedStringArray("buttonAngry", "buttonBlaming", "buttonEmpathy", "buttonLoving")]
 script = ExtResource("1_wqhvx")
-buttonAngry = NodePath("CanvasLayer/VBoxContainer/HBoxContainer/Angry")
-buttonBlaming = NodePath("CanvasLayer/VBoxContainer/HBoxContainer/Blaming")
-buttonEmpathy = NodePath("CanvasLayer/VBoxContainer/HBoxContainer/Empathic")
-buttonLoving = NodePath("CanvasLayer/VBoxContainer/HBoxContainer/Loving")
+buttonAngry = NodePath("CanvasLayer/Answers/HBoxContainer/Angry")
+buttonBlaming = NodePath("CanvasLayer/Answers/HBoxContainer/Blaming")
+buttonEmpathy = NodePath("CanvasLayer/Answers/HBoxContainer/Empathic")
+buttonLoving = NodePath("CanvasLayer/Answers/HBoxContainer/Loving")
 
 [node name="Img0249" type="Sprite2D" parent="."]
 visible = false
@@ -90,11 +90,91 @@ texture = ExtResource("3_tbwuq")
 expand_mode = 2
 stretch_mode = 5
 
+[node name="Answers" type="Control" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnswerHer" type="TextureRect" parent="CanvasLayer/Answers"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.89282
+offset_top = 140.0
+offset_right = 257.89282
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_2jtsn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Answers"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 817.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="Angry" type="Button" parent="CanvasLayer/Answers/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_racf3")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_7m3ot")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_racf3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v3hpu")
+text = "Listen. It's over between us now. You could kill us now"
+autowrap_mode = 3
+
+[node name="Blaming" type="Button" parent="CanvasLayer/Answers/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_7m3ot")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_irg28")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2jtsn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wawo4")
+text = "I'm in this PLANETSHIP with six billion people who hate me because of you."
+autowrap_mode = 2
+
+[node name="Empathic" type="Button" parent="CanvasLayer/Answers/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_2jtsn")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_8bugq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_56v3a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_o57t2")
+text = "I understand why you are mad at me but why did you destroy a planet?"
+autowrap_mode = 2
+
+[node name="Loving" type="Button" parent="CanvasLayer/Answers/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_8bugq")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_uq3qu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0p6qk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s4bmq")
+text = "Wow... You look so beautiful in red... in your Space Goddess form."
+autowrap_mode = 2
+
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 666.0
+offset_bottom = 1556.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -111,55 +191,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Angry" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = SubResource("Theme_racf3")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxTexture_7m3ot")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_racf3")
-theme_override_styles/hover = SubResource("StyleBoxTexture_v3hpu")
-text = "Listen. It's over between us now. You could kill us now"
-autowrap_mode = 3
-
-[node name="Blaming" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = SubResource("Theme_7m3ot")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxTexture_irg28")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_2jtsn")
-theme_override_styles/hover = SubResource("StyleBoxTexture_wawo4")
-text = "I'm in this PLANETSHIP with six billion people who hate me because of you."
-autowrap_mode = 2
-
-[node name="Empathic" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = SubResource("Theme_2jtsn")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxTexture_8bugq")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_56v3a")
-theme_override_styles/hover = SubResource("StyleBoxTexture_o57t2")
-text = "I understand why you are mad at me but why did you destroy a planet?"
-autowrap_mode = 2
-
-[node name="Loving" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = SubResource("Theme_8bugq")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxTexture_uq3qu")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_0p6qk")
-theme_override_styles/hover = SubResource("StyleBoxTexture_s4bmq")
-text = "Wow... You look so beautiful in red... in your Space Goddess form."
-autowrap_mode = 2
-
-[node name="Text" type="Label" parent="CanvasLayer"]
+[node name="TimeText" type="Label" parent="CanvasLayer"]
 offset_right = 206.0
 offset_bottom = 67.0
 text = "TIME
@@ -183,17 +215,3 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_r8nfu")
 text = "Finally, still trying to avoid me after everything..."
 vertical_alignment = 1
 autowrap_mode = 2
-
-[node name="AnswerHer" type="TextureRect" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -257.89282
-offset_top = 99.0
-offset_right = 257.89282
-offset_bottom = 215.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_2jtsn")

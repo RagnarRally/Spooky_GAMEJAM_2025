@@ -11,7 +11,9 @@ func _ready() -> void:
 	buttonBlaming.button_up.connect(_option_pressed.bind("Blaming"))
 	buttonEmpathy.button_up.connect(_option_pressed.bind("Empathy"))
 	buttonLoving.button_up.connect(_option_pressed.bind("Loving"))
-	$CanvasLayer/Text.text = "TIME\n%.02f" % Globals.timeTotal
+	$CanvasLayer/TimeText.text = "TIME\n%.02f" % Globals.timeTotal
+	var tween = create_tween()
+	tween.tween_property($CanvasLayer/Answers, "modulate", Color.WHITE, 3.0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
