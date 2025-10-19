@@ -49,9 +49,8 @@ func _ready() -> void:
 		
 
 func _physics_process(_delta : float):
-	thrust = Vector2.ZERO
-	rotation_dir = Input.get_axis("rotate_left", "rotate_right")
-	constant_torque = rotation_dir * spin_power
+	var desired_angle = linear_velocity.angle()
+	rotation = lerp_angle(rotation, desired_angle, 2*_delta)
 	
 func _process(delta: float) -> void:
 	Globals.timeTotal += delta
