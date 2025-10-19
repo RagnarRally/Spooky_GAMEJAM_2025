@@ -24,14 +24,14 @@ func _process(delta: float) -> void:
 func _option_pressed(option: String):
 	
 	if option == "Angry":
-		pass
+		$CanvasLayer/HBoxContainer/Angry.text = "Your dead!"
 		#get_tree().quit()
 	if option == "Blaming":
-		pass
+		$CanvasLayer/HBoxContainer/Blaming.text = "I hate you!"
 		#get_tree().quit()
 	if option == "Empathy":
-		pass
+		$CanvasLayer/HBoxContainer/Empathic.text = "Death to the galaxy!"
 	if option == "Loving":
-		pass
-	
+		$CanvasLayer/HBoxContainer/Loving.text = "I will kill you pervert!"
+	await get_tree().create_timer(3.0).timeout
 	SceneSwitcher.change_scene_to("game")
