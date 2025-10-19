@@ -25,8 +25,10 @@ func _option_pressed(option: String):
 	
 	if option == "Angry":
 		pass
+		#get_tree().quit()
 	if option == "Blaming":
 		pass
+		#get_tree().quit()
 	if option == "Empathy":
 		pass
 	if option == "Loving":
