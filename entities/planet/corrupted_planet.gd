@@ -1,6 +1,7 @@
 extends Node2D
 class_name CorruptedPlanet
 
+@export var corruption_start_radius_multiplier: Vector2 = Vector2(1,3)
 @export var properties: PlanetProperties
 
 @export var _graphics_root: Node2D
@@ -39,9 +40,8 @@ func setup(new_properties: PlanetProperties):
 	_graphics_root.scale = Vector2.ONE * new_properties.size / 10
 	collision_shape.shape.radius = new_properties.size
 
-	var base_corrupt = new_properties.size*3+32
-
-	_current_corruption_radius =  randf_range(base_corrupt, base_corrupt*4)
+	var base_corrupt = new_properties.size*2+32
+	_current_corruption_radius = base_corrupt * randf_range(corruption_start_radius_multiplier.x, corruption_start_radius_multiplier.y)
 
 	_properties = new_properties
 	_set_corruption_size(_current_corruption_radius)
