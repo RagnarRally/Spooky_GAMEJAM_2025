@@ -99,14 +99,14 @@ texture = ExtResource("1_xeevv")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-modulate = Color(0.29586652, 0.2958665, 0.2958665, 1)
+modulate = Color(0.69135684, 0.6913568, 0.69135684, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_tbwuq")
-expand_mode = 2
+expand_mode = 3
 stretch_mode = 5
 
 [node name="AnswerHer" type="TextureRect" parent="CanvasLayer"]
