@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckvdv57iaonab"]
+[gd_scene load_steps=6 format=3 uid="uid://ckvdv57iaonab"]
 
 [ext_resource type="Script" uid="uid://dm3k3wss6tfof" path="res://scenes/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://cj11v7c7klyco" path="res://assets/art/Start Game/PLANETSHIP_Logo.png" id="2_wu84c"]
 [ext_resource type="Texture2D" uid="uid://bgbddn6i56oto" path="res://assets/art/Start Game/Planetship.png" id="3_8ln24"]
 [ext_resource type="Texture2D" uid="uid://5t1tybrotauu" path="res://assets/art/Start Game/Planet_1.png" id="4_rtw2f"]
+[ext_resource type="PackedScene" uid="uid://dmvi5nupfn4my" path="res://entities/planet/computed_planet.tscn" id="5_8ln24"]
 
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("play_button")]
 script = ExtResource("1_l6cm7")
@@ -87,3 +88,11 @@ alignment = 1
 [node name="PlayButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "PLAY"
+
+[node name="galaxy" parent="." instance=ExtResource("5_8ln24")]
+z_index = 4
+offset_left = 149.0
+offset_top = -369.0
+offset_right = 189.0
+offset_bottom = -329.0
+scale = Vector2(4, 4)

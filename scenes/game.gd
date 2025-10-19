@@ -27,6 +27,8 @@ func _ready() -> void:
 
 	Globals.reset_for_new_run()
 
+	damage_indicator.modulate.a = 0
+
 	# AudioManager.change_music("game_music")
 
 
