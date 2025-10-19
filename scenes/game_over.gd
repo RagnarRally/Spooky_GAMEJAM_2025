@@ -1,13 +1,19 @@
 extends Node2D
 
-@export var left_option_button: Button
-@export var right_option_button: Button
+@export var buttonAngry: Button
+@export var buttonBlaming: Button
+@export var buttonEmpathy: Button
+@export var buttonLoving: Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	left_option_button.button_up.connect(_option_pressed.bind("left"))
-	right_option_button.button_up.connect(_option_pressed.bind("right"))
-	$CanvasLayer/Label.text = "TIME\n%.02f" % Globals.timeTotal
+	buttonAngry.button_up.connect(_option_pressed.bind("Angry"))
+	buttonBlaming.button_up.connect(_option_pressed.bind("Blaming"))
+	buttonEmpathy.button_up.connect(_option_pressed.bind("Empathy"))
+	buttonLoving.button_up.connect(_option_pressed.bind("Loving"))
+	$CanvasLayer/TimeText.text = "TIME\n%.02f" % Globals.timeTotal
+	var tween = create_tween()
+	tween.tween_property($CanvasLayer/Answers, "modulate", Color.WHITE, 3.0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,9 +22,13 @@ func _process(delta: float) -> void:
 
 func _option_pressed(option: String):
 	
-	if option == "left":
+	if option == "Angry":
 		pass
-	if option == "right":
+	if option == "Blaming":
+		pass
+	if option == "Empathy":
+		pass
+	if option == "Loving":
 		pass
 	
 	SceneSwitcher.change_scene_to("game")
